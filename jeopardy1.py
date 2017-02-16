@@ -22,8 +22,8 @@ Answers = [
 "Who is Assata Shakur?",
 
 "Who is Dr. Martin Luther King, Jr.?"
-# I dont know the official title for lawyer please add if known
-"Who is Percy Sutton?"
+
+"Who is Percy Sutton, Esq?"
     
 ]
 
