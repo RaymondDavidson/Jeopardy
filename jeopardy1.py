@@ -11,7 +11,7 @@ Questions =[
 
 "He believed \"a riot is the voice of the unheard.\"\n\n"
     
-"He was the lawyer to Malcom X \n"
+"He was the lawyer to Malcom X \n\n"
 ]
 
 Answers = [
@@ -21,7 +21,7 @@ Answers = [
 
 "Who is Assata Shakur?",
 
-"Who is Dr. Martin Luther King, Jr.?"
+"Who is Dr. Martin Luther King, Jr.?",
 
 "Who is Percy Sutton, Esq?"
     
@@ -47,7 +47,7 @@ def handle_exit_code(d, code):
     if code in (d.DIALOG_CANCEL, d.DIALOG_ESC):
         if code == d.DIALOG_CANCEL:
             msg = "You chose cancel in the last dialog box. Do you want to " \
-                  "exit this demo?"
+                  "exit jeopardy?"
         else:
             msg = "You pressed ESC in the last dialog box. Do you want to " \
                   "exit this demo?"
