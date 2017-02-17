@@ -11,7 +11,13 @@ Questions =[
 
 "He believed \"a riot is the voice of the unheard.\"\n\n"
 
-"He was the lawyer to Malcom X \n"
+"He was the lawyer to Malcom X \n\n"
+ 
+"Who believed that freedom is only earned every generation?\n\n"
+ 
+"Who said that, “\Hate is too great a burden to bear. It injures the hater more than it injures the hated.\”\n\n"
+    
+"Who believed that \“all Americans who believe in freedom” should “oppose bigotry and prejudice based on sexual orientation\”\n\n"
 ]
 
 Answers = [
@@ -23,8 +29,13 @@ Answers = [
 
 "Who is Dr. Martin Luther King, Jr.?",
 
-"Who is Percy Sutton?"
+"Who is Percy Sutton?",
+    
+"Who is Coretta Scott King?",
 
+"Who is Coretta Scott King?",
+    
+"Who is Coretta Scott King?"
 ]
 
 def handle_exit_code(d, code):
@@ -47,11 +58,11 @@ def handle_exit_code(d, code):
     if code in (d.DIALOG_CANCEL, d.DIALOG_ESC):
         if code == d.DIALOG_CANCEL:
             msg = "You chose cancel in the last dialog box. Do you want to " \
-                  "exit this demo?"
+                  "exit Jeopardy?"
         else:
             msg = "You pressed ESC in the last dialog box. Do you want to " \
-                  "exit this demo?"
-        # "No" or "ESC" will bring the user back to the demo.
+                  "exit Jeopardy?"
+        # "No" or "ESC" will bring the user back to the game.
         # DIALOG_ERROR is propagated as an exception and caught in main().
         # So we only need to handle OK here.
         if d.yesno(msg) == d.DIALOG_OK:
@@ -90,12 +101,12 @@ def main():
 
         if ask == Answers[question]:
             correct = correct + 1
-            infobox(d,"Correct")
+            infobox(d,"Answer Correct")
             question = question + 1
             infobox(d, str(correct) + "/" + str(question) + " correct.")
 
         else:
-            infobox(d, "Incorrect")
+            infobox(d, "Answer Incorrect")
             question = question + 1
 
     exit()
