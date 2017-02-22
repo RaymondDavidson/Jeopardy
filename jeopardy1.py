@@ -18,6 +18,22 @@ Questions =[
 "Who said that, “\Hate is too great a burden to bear. It injures the hater more than it injures the hated.\”\n\n"
     
 "Who believed that \“all Americans who believe in freedom” should “oppose bigotry and prejudice based on sexual orientation\”\n\n"
+
+"She said “It is our duty to fight for our freedom. It is our duty to win. We must love each other and support each other. We have nothing to lose but our chains.”
+
+"According to him, “The revolution has always been in the hands of the young. The young inherit the revolution.” 
+
+"She said “No one is going to give you the education you need to overthrow them”.,
+
+"She said  “it is our duty to fight for our freedom. It is our duty to win.”,
+
+"He said “You don't fight racism with racism, the best way to fight racism is with solidarity.”,
+
+"Who said “You can jail a revolutionary, but you can not jail the revolution.”, 
+
+"She said “I don't believe you can stand for freedom  for one group of people and deny it to others.” ,
+
+
 ]
 
 Answers = [
@@ -36,6 +52,22 @@ Answers = [
 "Who is Coretta Scott King?",
     
 "Who is Coretta Scott King?"
+ 
+"Who is Assata Shakur?
+
+"Who is Huey P. Newton? 
+ 
+"Who is Assata Shakur?
+
+"Who is Assata Shakur?
+
+"Who is Bobby Seale?
+ 
+"Who is Bobby Seale?
+ 
+"Who is Coretta Scott King?
+ 
+ 
 ]
 
 def handle_exit_code(d, code):
