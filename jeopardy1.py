@@ -32,8 +32,35 @@ Questions =[
 "Who said “You can jail a revolutionary, but you can not jail the revolution.”, 
 
 "She said “I don't believe you can stand for freedom  for one group of people and deny it to others.” ,
+ 
+"She makes clear that “the political core of any movement for freedom in the society has to have the political imperative to protect free speech.” 
 
+"He wrote “the secret of life is to have no fear; it's the only way to function”.
+ 
+"She said “ I will not have my life narrowed down. I will not bow down to somebody else’s whim or to someone else’s ignorance.” 
 
+"He said “If you see something that is not right, not fair, not just, you have a moral obligation to do something about it.”
+
+"She said,  “being oppressed [dominated] means the absence of choices.”
+
+"She said, “I want there to be a place in the world where people can engage in one another’s differences in a way that is redemptive, full of hope and possibility. Not this ‘In order to love you, I must make you something else’. That’s what domination is all about, that in order to be close to you, I must possess you, remake and recast you.” 
+
+"He said, “The civil rights movement was based on faith. Many of us who were participants in this movement saw our involvement as an extension of our faith. We saw ourselves doing the work of the Almighty. Segregation and racial discrimination were not in keeping with our faith, so we had to do something.”
+ 
+"He said, “Darkness cannot drive out darkness; only light can do that. Hate cannot drive out hate; only love can do that.”
+ 
+"She said that, “hate is too great a burden to bear. It injures the hater more than it injures the hated.”
+ 
+"S/he believed that “all Americans who believe in freedom” should “oppose bigotry and prejudice based on sexual orientation.”
+ 
+"She said “this is the 21st century; we need to redefine revolution.”
+ 
+"He said “Don’t give up, Don't give out, Don't give in.” 
+ 
+"She said “Feminism is for everybody.”
+ 
+"She said “radical” simply means “grasping by the roots.”
+ 
 ]
 
 Answers = [
@@ -67,6 +94,33 @@ Answers = [
  
 "Who is Coretta Scott King?
  
+"Who is bell hooks?",
+ 
+"Who is Stokely Carmichael?",
+ 
+"Who is bell hooks?",
+ 
+"Who is Rep. John Lewis?",
+ 
+"Who is bell hooks?",
+ 
+"Who is bell hooks?",
+
+"Who is Rep. John Lewis?",
+ 
+"Who is Dr. Martin Luther King, Jr.?",
+
+"Who is Coretta Scott King?",
+ 
+"Who is Coretta Scott King?",
+ 
+"Who is Assata Shakur?",
+ 
+"Who is Rep. John Lewis?",
+ 
+"Who is bell hooks?",
+ 
+"Who is Dr. Angela Davis?",
  
 ]
 
