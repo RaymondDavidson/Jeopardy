@@ -3,124 +3,124 @@ import time
 import sys
 
 Questions =[
-"She is a civil-rights activist that argued for the abolition of prisons. \n\n",
+"(1) She is a civil-rights activist that argued for the abolition of prisons. \n\n",
 
-"He is the civil-rights leader who described potentially radical action in support of civil rights progress as \"marvelous new militancy\".\n\n",
+"(2) He is the civil-rights leader who described potentially radical action in support of civil rights progress as \"marvelous new militancy\".\n\n",
 
-"She is a civil-rights activist that argued \"We have nothing to lose but our chains.\"\n\n",
+"(3)She is a civil-rights activist that argued \"We have nothing to lose but our chains.\"\n\n",
 
-"He believed \"a riot is the voice of the unheard.\"\n\n"
+"(4) He believed \"a riot is the voice of the unheard.\"\n\n"
 
-"He was the lawyer to Malcom X \n\n"
+"(5) He was the lawyer to Malcom X \n\n"
  
-"Who believed that freedom is only earned every generation?\n\n"
+"(6) Who believed that freedom is only earned every generation?\n\n"
  
-"Who said that, “\Hate is too great a burden to bear. It injures the hater more than it injures the hated.\”\n\n"
+"(7) Who said that, “\Hate is too great a burden to bear. It injures the hater more than it injures the hated.\”\n\n"
     
-"Who believed that \“all Americans who believe in freedom” should “oppose bigotry and prejudice based on sexual orientation\”\n\n"
+"(8) Who believed that \“all Americans who believe in freedom” should “oppose bigotry and prejudice based on sexual orientation\”\n\n"
 
-"She said “It is our duty to fight for our freedom. It is our duty to win. We must love each other and support each other. We have nothing to lose but our chains.”
+"(9) She said “It is our duty to fight for our freedom. It is our duty to win. We must love each other and support each other. We have nothing to lose but our chains.”
 
-"According to him, “The revolution has always been in the hands of the young. The young inherit the revolution.” 
+"(10) According to him, “The revolution has always been in the hands of the young. The young inherit the revolution.” 
 
-"She said “No one is going to give you the education you need to overthrow them”.,
+"(11) She said “No one is going to give you the education you need to overthrow them”.,
 
-"She said  “it is our duty to fight for our freedom. It is our duty to win.”,
+"(12) She said  “it is our duty to fight for our freedom. It is our duty to win.”,
 
-"He said “You don't fight racism with racism, the best way to fight racism is with solidarity.”,
+"(13) He said “You don't fight racism with racism, the best way to fight racism is with solidarity.”,
 
-"Who said “You can jail a revolutionary, but you can not jail the revolution.”, 
+"(14) Who said “You can jail a revolutionary, but you can not jail the revolution.”, 
 
-"She said “I don't believe you can stand for freedom  for one group of people and deny it to others.” ,
+"(15) She said “I don't believe you can stand for freedom  for one group of people and deny it to others.” ,
  
-"She makes clear that “the political core of any movement for freedom in the society has to have the political imperative to protect free speech.” 
+"(16) She makes clear that “the political core of any movement for freedom in the society has to have the political imperative to protect free speech.” 
 
-"He wrote “the secret of life is to have no fear; it's the only way to function”.
+"(17) He wrote “the secret of life is to have no fear; it's the only way to function”.
  
-"She said “ I will not have my life narrowed down. I will not bow down to somebody else’s whim or to someone else’s ignorance.” 
+"(18) She said “ I will not have my life narrowed down. I will not bow down to somebody else’s whim or to someone else’s ignorance.” 
 
-"He said “If you see something that is not right, not fair, not just, you have a moral obligation to do something about it.”
+"(19) He said “If you see something that is not right, not fair, not just, you have a moral obligation to do something about it.”
 
-"She said,  “being oppressed [dominated] means the absence of choices.”
+"(20) She said,  “being oppressed [dominated] means the absence of choices.”
 
-"She said, “I want there to be a place in the world where people can engage in one another’s differences in a way that is redemptive, full of hope and possibility. Not this ‘In order to love you, I must make you something else’. That’s what domination is all about, that in order to be close to you, I must possess you, remake and recast you.” 
+"(21) She said, “I want there to be a place in the world where people can engage in one another’s differences in a way that is redemptive, full of hope and possibility. Not this ‘In order to love you, I must make you something else’. That’s what domination is all about, that in order to be close to you, I must possess you, remake and recast you.” 
 
-"He said, “The civil rights movement was based on faith. Many of us who were participants in this movement saw our involvement as an extension of our faith. We saw ourselves doing the work of the Almighty. Segregation and racial discrimination were not in keeping with our faith, so we had to do something.”
+"(22) He said, “The civil rights movement was based on faith. Many of us who were participants in this movement saw our involvement as an extension of our faith. We saw ourselves doing the work of the Almighty. Segregation and racial discrimination were not in keeping with our faith, so we had to do something.”
  
-"He said, “Darkness cannot drive out darkness; only light can do that. Hate cannot drive out hate; only love can do that.”
+"(23) He said, “Darkness cannot drive out darkness; only light can do that. Hate cannot drive out hate; only love can do that.”
  
-"She said that, “hate is too great a burden to bear. It injures the hater more than it injures the hated.”
+"(24) She said that, “hate is too great a burden to bear. It injures the hater more than it injures the hated.”
  
-"S/he believed that “all Americans who believe in freedom” should “oppose bigotry and prejudice based on sexual orientation.”
+"(25) She believed that “all Americans who believe in freedom” should “oppose bigotry and prejudice based on sexual orientation.”
  
-"She said “this is the 21st century; we need to redefine revolution.”
+"(26) She said “this is the 21st century; we need to redefine revolution.”
  
-"He said “Don’t give up, Don't give out, Don't give in.” 
+"(27) He said “Don’t give up, Don't give out, Don't give in.” 
  
-"She said “Feminism is for everybody.”
+"(28) She said “Feminism is for everybody.”
  
-"She said “radical” simply means “grasping by the roots.”
+"(29) She said “radical” simply means “grasping by the roots.”
  
 ]
 
 Answers = [
-"Who is Dr. Angela Davis?",
+"(1) Who is Dr. Angela Davis?",
 
-"Who is Dr. Martin Luther King, Jr.?",
+"(2) Who is Dr. Martin Luther King, Jr.?",
 
-"Who is Assata Shakur?",
+"(3) Who is Assata Shakur?",
 
-"Who is Dr. Martin Luther King, Jr.?",
+"(4) Who is Dr. Martin Luther King, Jr.?",
 
-"Who is Percy Sutton?",
+"(5) Who is Percy Sutton?",
     
-"Who is Coretta Scott King?",
+"(6) Who is Coretta Scott King?",
 
-"Who is Coretta Scott King?",
+"(7) Who is Coretta Scott King?",
     
-"Who is Coretta Scott King?"
+"(8) Who is Coretta Scott King?"
  
-"Who is Assata Shakur?
+"(9) Who is Assata Shakur?"
 
-"Who is Huey P. Newton? 
+"(10) Who is Huey P. Newton?"
  
-"Who is Assata Shakur?
+"(11) Who is Assata Shakur?"
 
-"Who is Assata Shakur?
+"(12) Who is Assata Shakur?"
 
-"Who is Bobby Seale?
+"(13) Who is Bobby Seale?"
  
-"Who is Bobby Seale?
+"(14) Who is Bobby Seale?"
  
-"Who is Coretta Scott King?
+"(15) Who is Coretta Scott King?"
  
-"Who is bell hooks?",
+"(16) Who is bell hooks?",
  
-"Who is Stokely Carmichael?",
+"(17) Who is Stokely Carmichael?",
  
-"Who is bell hooks?",
+"(18) Who is bell hooks?",
  
-"Who is Rep. John Lewis?",
+"(19) Who is Rep. John Lewis?",
  
-"Who is bell hooks?",
+"(20) Who is bell hooks?",
  
-"Who is bell hooks?",
+"(21) Who is bell hooks?",
 
-"Who is Rep. John Lewis?",
+"(22) Who is Rep. John Lewis?",
  
-"Who is Dr. Martin Luther King, Jr.?",
+"(23) Who is Dr. Martin Luther King, Jr.?",
 
-"Who is Coretta Scott King?",
+"(24) Who is Coretta Scott King?",
  
-"Who is Coretta Scott King?",
+"(25) Who is Coretta Scott King?",
  
-"Who is Assata Shakur?",
+"(26) Who is Assata Shakur?",
  
-"Who is Rep. John Lewis?",
+"(27) Who is Rep. John Lewis?",
  
-"Who is bell hooks?",
+"(28) Who is bell hooks?",
  
-"Who is Dr. Angela Davis?",
+"(29) Who is Dr. Angela Davis?",
  
 ]
 
