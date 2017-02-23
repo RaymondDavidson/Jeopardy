@@ -7,21 +7,21 @@ Questions =[
 
 "(2) He is the civil-rights leader who described potentially radical action in support of civil rights progress as \"marvelous new militancy\".\n\n",
 
-"(3)She is a civil-rights activist that argued \"We have nothing to lose but our chains.\"\n\n",
+"(3) She is a civil-rights activist that argued \"We have nothing to lose but our chains.\"\n\n",
 
-"(4) He believed \"a riot is the voice of the unheard.\"\n\n"
+"(4) He believed \'a riot is the voice of the unheard.\'\n\n"
 
 "(5) He was the lawyer to Malcom X \n\n"
  
 "(6) Who believed that freedom is only earned every generation?\n\n"
  
-"(7) Who said that, “\Hate is too great a burden to bear. It injures the hater more than it injures the hated.\”\n\n"
+"(7) Who said that, '\Hate is too great a burden to bear. It injures the hater more than it injures the hated.\'\n\n"
     
-"(8) Who believed that \“all Americans who believe in freedom” should “oppose bigotry and prejudice based on sexual orientation\”\n\n"
+"(8) Who believed that \'all Americans who believe in freedom should oppose bigotry and prejudice based on sexual orientation\'\n\n"
 
-"(9) She said “It is our duty to fight for our freedom. It is our duty to win. We must love each other and support each other. We have nothing to lose but our chains.”
+"(9) She said 'It is our duty to fight for our freedom. It is our duty to win. We must love each other and support each other. We have nothing to lose but our chains.\'\n\n"
 
-"(10) According to him, “The revolution has always been in the hands of the young. The young inherit the revolution.” 
+"(10) According to him, 'The revolution has always been in the hands of the young. The young inherit the revolution.\'\n\n" 
 
 "(11) She said “No one is going to give you the education you need to overthrow them”.,
 
@@ -78,21 +78,21 @@ Answers = [
 
 "(7) Who is Coretta Scott King?",
     
-"(8) Who is Coretta Scott King?"
+"(8) Who is Coretta Scott King?",
  
-"(9) Who is Assata Shakur?"
+"(9) Who is Assata Shakur?",
 
-"(10) Who is Huey P. Newton?"
+"(10) Who is Huey P. Newton?",
  
-"(11) Who is Assata Shakur?"
+"(11) Who is Assata Shakur?",
 
-"(12) Who is Assata Shakur?"
+"(12) Who is Assata Shakur?",
 
-"(13) Who is Bobby Seale?"
+"(13) Who is Bobby Seale?",
  
-"(14) Who is Bobby Seale?"
+"(14) Who is Bobby Seale?",
  
-"(15) Who is Coretta Scott King?"
+"(15) Who is Coretta Scott King?",
  
 "(16) Who is bell hooks?",
  
