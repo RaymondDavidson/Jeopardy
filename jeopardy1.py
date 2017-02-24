@@ -23,43 +23,43 @@ Questions =[
 
 "(10) According to him, 'The revolution has always been in the hands of the young. The young inherit the revolution.\'\n\n" 
 
-"(11) She said “No one is going to give you the education you need to overthrow them”.,
+"(11) She said 'No one is going to give you the education you need to overthrow them.\'\n\n",
 
-"(12) She said  “it is our duty to fight for our freedom. It is our duty to win.”,
+"(12) She said  'it is our duty to fight for our freedom. It is our duty to win.\'\n\n",
 
-"(13) He said “You don't fight racism with racism, the best way to fight racism is with solidarity.”,
+"(13) He said 'You don't fight racism with racism, the best way to fight racism is with solidarity.\'\n\n",
 
-"(14) Who said “You can jail a revolutionary, but you can not jail the revolution.”, 
+"(14) Who said 'You can jail a revolutionary, but you can not jail the revolution.\'\n\n", 
 
-"(15) She said “I don't believe you can stand for freedom  for one group of people and deny it to others.” ,
+"(15) She said 'I don't believe you can stand for freedom  for one group of people and deny it to others.\'\n\n",
  
-"(16) She makes clear that “the political core of any movement for freedom in the society has to have the political imperative to protect free speech.” 
+"(16) She makes clear that 'the political core of any movement for freedom in the society has to have the political imperative to protect free speech.\'\n\n" 
 
-"(17) He wrote “the secret of life is to have no fear; it's the only way to function”.
+"(17) He wrote 'the secret of life is to have no fear; it's the only way to function.\'\n\n"
  
-"(18) She said “ I will not have my life narrowed down. I will not bow down to somebody else’s whim or to someone else’s ignorance.” 
+"(18) She said 'I will not have my life narrowed down. I will not bow down to somebody else’s whim or to someone else’s ignorance.\'\n\n"
 
-"(19) He said “If you see something that is not right, not fair, not just, you have a moral obligation to do something about it.”
+"(19) He said 'If you see something that is not right, not fair, not just, you have a moral obligation to do something about it.\'\n\n"
 
-"(20) She said,  “being oppressed [dominated] means the absence of choices.”
+"(20) She said, 'being oppressed [dominated] means the absence of choices.\'\n\"
 
-"(21) She said, “I want there to be a place in the world where people can engage in one another’s differences in a way that is redemptive, full of hope and possibility. Not this ‘In order to love you, I must make you something else’. That’s what domination is all about, that in order to be close to you, I must possess you, remake and recast you.” 
+"(21) She said, "I want there to be a place in the world where people can engage in one another’s differences in a way that is redemptive, full of hope and possibility. Not this ‘In order to love you, I must make you something else’. That’s what domination is all about, that in order to be close to you, I must possess you, remake and recast you.\"\n\n" 
 
-"(22) He said, “The civil rights movement was based on faith. Many of us who were participants in this movement saw our involvement as an extension of our faith. We saw ourselves doing the work of the Almighty. Segregation and racial discrimination were not in keeping with our faith, so we had to do something.”
+"(22) He said, 'The civil rights movement was based on faith. Many of us who were participants in this movement saw our involvement as an extension of our faith. We saw ourselves doing the work of the Almighty. Segregation and racial discrimination were not in keeping with our faith, so we had to do something.\'\n\n"
  
-"(23) He said, “Darkness cannot drive out darkness; only light can do that. Hate cannot drive out hate; only love can do that.”
+"(23) He said, 'Darkness cannot drive out darkness; only light can do that. Hate cannot drive out hate; only love can do that.\'\n\n"
  
-"(24) She said that, “hate is too great a burden to bear. It injures the hater more than it injures the hated.”
+"(24) She said that, 'hate is too great a burden to bear. It injures the hater more than it injures the hated.\'\n\n"
  
-"(25) She believed that “all Americans who believe in freedom” should “oppose bigotry and prejudice based on sexual orientation.”
+"(25) She believed that 'all Americans who believe in freedom should oppose bigotry and prejudice based on sexual orientation.\'\n\n"
  
-"(26) She said “this is the 21st century; we need to redefine revolution.”
+"(26) She said 'this is the 21st century; we need to redefine revolution.\'\n\n"
  
-"(27) He said “Don’t give up, Don't give out, Don't give in.” 
+"(27) He said 'Don’t give up, Don't give out, Don't give in.\'\n\n" 
  
-"(28) She said “Feminism is for everybody.”
+"(28) She said 'Feminism is for everybody.\'\n\n"
  
-"(29) She said “radical” simply means “grasping by the roots.”
+"(29) She said “radical” simply means “grasping by the roots.”\n\n"
  
 ]
 
