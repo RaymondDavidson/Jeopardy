@@ -41,9 +41,9 @@ Questions =[
 
 "(19) He said 'If you see something that is not right, not fair, not just, you have a moral obligation to do something about it.\'\n\n"
 
-"(20) She said, 'being oppressed [dominated] means the absence of choices.\'\n\"
+"(20) She said, \'being oppressed [dominated] means the absence of choices.\'\n\"
 
-"(21) She said, "I want there to be a place in the world where people can engage in one another’s differences in a way that is redemptive, full of hope and possibility. Not this ‘In order to love you, I must make you something else’. That’s what domination is all about, that in order to be close to you, I must possess you, remake and recast you.\"\n\n" 
+"(21) She said, \'I want there to be a place in the world where people can engage in one another’s differences in a way that is redemptive, full of hope and possibility. Not this ‘In order to love you, I must make you something else’. That’s what domination is all about, that in order to be close to you, I must possess you, remake and recast you.\'\n\n" 
 
 "(22) He said, 'The civil rights movement was based on faith. Many of us who were participants in this movement saw our involvement as an extension of our faith. We saw ourselves doing the work of the Almighty. Segregation and racial discrimination were not in keeping with our faith, so we had to do something.\'\n\n"
  
