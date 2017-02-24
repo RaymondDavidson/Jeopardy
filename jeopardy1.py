@@ -55,7 +55,7 @@ Questions =[
 
 "(26) She said \"this is the 21st century; we need to redefine revolution.\"\n\n",
 
-"(27) He said \"Don’t give up, Don't give out, Don't give in.\"\n\n",
+"(27) He said \"Don't give up, Don't give out, Don't give in.\"\n\n",
 
 "(28) She said \"Feminism is for everybody.\"\n\n",
 
