@@ -1,5 +1,6 @@
 from tkinter import *
 import tkinter as tk
+import sys
 
 
 
@@ -138,7 +139,7 @@ root = Tk()
 whois = StringVar(root, value='Who is...?')
 
 # geometry for root window
-root.geometry('{}x{}'.format(1024, 600))
+root.geometry('{}x{}'.format(1024, 500))
 
 
 
@@ -147,12 +148,12 @@ root.geometry('{}x{}'.format(1024, 600))
 windowtitle = root.wm_title(title)
 
 #this should be cleared after the first question
-label = tk.Label(root,text='Welcome. Please remember to enter your answers in the form of a question. Capitalization, punctualion, and spelling matter.\n\n')
-label = label.pack()
+rules = tk.Label(root,text='Welcome. Please remember to enter your answers in the form of a question. Capitalization, punctualion, and spelling matter.\n\n')
+rules = rules.pack()
 
 #question as label
 font = 'arial 16 bold'
-label = tk.Label(root,text = question[ques],wraplength=300, justify=LEFT, font=font)
+label = tk.Label(root,text = question[ques],wraplength=500, justify=LEFT, font=font)
 label.pack()
 
 # Does not Work Properly: Should be there for each question
@@ -166,22 +167,9 @@ def out():
 
     global correct, ques, count
 
-    #troubleshooting
-    #print(question[ques])
+    
     ans = entry.get()
-    #start loop
-    # label for question
-    #label = tk.Label(root,text = question[ques])
-
-    #label.pack()
-
-    # default content of entry box
-    #entry = tk.Entry(root, width=50, textvariable=who)
-
-    #entry.pack()
-
-
-
+    
     if ques < 29:
 
 
@@ -209,7 +197,7 @@ def out():
         entry.delete(0, END)
         label.config(text = "Correct: " + str(correct) + "out of " + str(ques))
 
-        exit()
+        sys.exit()
 
 
 
@@ -217,7 +205,7 @@ def out():
 
 def stop():
 
-    exit()
+    sys.exit()
 
 
 # Buttons call functions
@@ -229,7 +217,9 @@ submit.pack()
 
 # quitit button calls stop function
 quitit = tk.Button(root,text = "Quit",command = stop)
+root.bind('<Escape>', (lambda e, button=quitit: quitit.invoke()))
 quitit.pack()
+
 
 
 root.mainloop()
