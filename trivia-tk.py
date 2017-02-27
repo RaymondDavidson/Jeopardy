@@ -120,19 +120,26 @@ answer = ["Who is Dr. Angela Davis?",
 "Who is Dr. Angela Davis?"
 ]
 
+#troubleshooting
+#print("quiz")
 
-print("quiz")
+#### Set Some Vars ####
 correct = 0
 ques = 0
 count = len(answer)
-print(count)
+title = "Jeopardy: Black History Month Edition"
+
+#troubleshooting
+#print(count)
 
 
 #creates empty root window
 root = Tk()
+whois = StringVar(root, value='Who is...?')
+
 # geometry for root window
 root.geometry('{}x{}'.format(1024, 700))
-title = "Jeopardy: Black History Month Edition"
+
 
 
 
@@ -148,7 +155,8 @@ font = 'arial 18 bold'
 label = tk.Label(root,text = question[ques],wraplength=300, justify=LEFT, font=font)
 label.pack()
 
-entry = tk.Entry(root, width=50, textvariable="Who is ...?")
+# Does not Work Properly: Should be there for each question
+entry = tk.Entry(root, width=50, textvariable=whois)
 entry.pack()
 
 score = tk.Label(root, text = "Score: 0/0")
