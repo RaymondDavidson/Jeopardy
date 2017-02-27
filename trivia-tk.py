@@ -3,7 +3,7 @@ import tkinter as tk
 
 
 
-question = ["(1) She is a civil-rights activist that argued for the abolition of prisons.",
+question = ["(1) She is a civil-rights activist that argued for the abolition of prisons.\n\n",
 
 "(2) He is the civil-rights leader who described potentially radical action in support of civil rights progress as \"marvelous new militancy\".\n\n",
 
@@ -13,11 +13,11 @@ question = ["(1) She is a civil-rights activist that argued for the abolition of
 
 "(5) He was the lawyer to Malcom X. \n\n",
 
-"(6) He believed that freedom is only earned every generation?\n\n",
+"(6) He believed that freedom is only earned every generation.\n\n",
 
 "(7) This activist said that, \"Hate is too great a burden to bear. It injures the hater more than it injures the hated.\"\n\n",
 
-"(8) Who believed that \"all Americans who believe in freedom should oppose bigotry and prejudice based on sexual orientation\"\n\n",
+"(8) Who believed that \"all Americans who believe in freedom should oppose bigotry and prejudice based on sexual orientation.\"\n\n",
 
 "(9) She said \"It is our duty to fight for our freedom. It is our duty to win. We must love each other and support each other. We have nothing to lose but our chains.\"\n\n",
 
@@ -41,7 +41,7 @@ question = ["(1) She is a civil-rights activist that argued for the abolition of
 
 "(19) He said \"If you see something that is not right, not fair, not just, you have a moral obligation to do something about it.\"\n\n",
 
-"(20) She said, \"being oppressed \[dominated\] means the absence of choices.\"\n\n",
+"(20) She said, \"being oppressed means the absence of choices.\"\n\n",
 
 "(21) She said, \"I want there to be a place in the world where people can engage in one another's differences in a way that is redemptive, full of hope and possibility. Not this \'In order to love you, I must make you something else\'. That's what domination is all about, that in order to be close to you, I must possess you, remake and recast you.\"\n\n",
 
@@ -128,12 +128,10 @@ count = len(answer)
 print(count)
 
 
-#answer_cap = ["Yes","Yes","Ok","Ok"]
-
 #creates empty root window
 root = Tk()
 # geometry for root window
-root.geometry('{}x{}'.format(1024, 600))
+root.geometry('{}x{}'.format(1024, 700))
 title = "Jeopardy: Black History Month Edition"
 
 
@@ -142,12 +140,12 @@ title = "Jeopardy: Black History Month Edition"
 windowtitle = root.wm_title(title)
 
 #this should be cleared after the first question
-label = tk.Label(root,text='Welcome. Please remember to enter your answers in the form of a question. Capitalization, punctualion, and spelling matter.')
+label = tk.Label(root,text='Welcome. Please remember to enter your answers in the form of a question. Capitalization, punctualion, and spelling matter.\n\n')
 label = label.pack()
 
 #question as label
-# IMPORTANT: This needs to wrap to the width of the window
-label = tk.Label(root,text = question[ques])
+font = 'arial 18 bold'
+label = tk.Label(root,text = question[ques],wraplength=300, justify=LEFT, font=font)
 label.pack()
 
 entry = tk.Entry(root, width=50, textvariable="Who is ...?")
