@@ -138,7 +138,7 @@ root = Tk()
 whois = StringVar(root, value='Who is...?')
 
 # geometry for root window
-root.geometry('{}x{}'.format(1024, 700))
+root.geometry('{}x{}'.format(1024, 600))
 
 
 
@@ -151,7 +151,7 @@ label = tk.Label(root,text='Welcome. Please remember to enter your answers in th
 label = label.pack()
 
 #question as label
-font = 'arial 18 bold'
+font = 'arial 16 bold'
 label = tk.Label(root,text = question[ques],wraplength=300, justify=LEFT, font=font)
 label.pack()
 
@@ -185,10 +185,7 @@ def out():
     if ques < 29:
 
 
-        # troubleshooting
-        #print(question[ques])
-        #print(ans)
-        #print(correct)
+        
 
         if ans == answer[ques]:
 
@@ -198,8 +195,7 @@ def out():
               ques = ques + 1
               entry.delete(0, END)
               label.config(text = question[ques])
-              #label = tk.Label(root,text='Correct') #label.config(text='Correct')
-              #label.pack()
+              
               score.config(text=("Score: " + str(correct) + "/" + str(ques)))
 
         else:
