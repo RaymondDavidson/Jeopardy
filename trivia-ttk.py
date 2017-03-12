@@ -148,6 +148,12 @@ root.geometry('{}x{}'.format(1024, 500))
 #name at top of dialog
 windowtitle = root.wm_title(title)
 
+# grip for resizing window "root"
+grippy = ttk.Sizegrip(root)
+grippy.pack()
+
+#grippy.pack()
+
 #this should be cleared after the first question
 rules = ttk.Label(root,text='Welcome. Please remember to enter your answers in the form of a question. Capitalization, punctualion, and spelling matter.\n\n')
 rules = rules.pack()
@@ -165,6 +171,7 @@ entry.pack()
 score = ttk.Label(root, text = "Score: 0/0")
 score.pack()
 
+# Progressbar
 further = ttk.Progressbar(mode="determinate",orient="horizontal", maximum=count,value=0,variable=ques)
 further.pack()
 
