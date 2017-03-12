@@ -1,5 +1,5 @@
-from tkinter import *
-import tkinter as tk
+from Tkinter import *
+import Tkinter as tk
 import sys
 
 
@@ -157,6 +157,7 @@ label = tk.Label(root,text = question[ques],wraplength=500, justify=LEFT, font=f
 label.pack()
 
 # Does not Work Properly: Should be there for each question
+
 entry = tk.Entry(root, width=50, textvariable=whois)
 entry.pack()
 
@@ -165,39 +166,38 @@ score.pack()
 
 def out():
 
-    global correct, ques, count
+    global correct, ques, count, entry
 
-    
+
     ans = entry.get()
-    
-    if ques < 29:
 
-
-        
-
+    if ques < count:
         if ans == answer[ques]:
 
 
 
-              correct = correct + 1
-              ques = ques + 1
-              entry.delete(0, END)
-              label.config(text = question[ques])
-              
-              score.config(text=("Score: " + str(correct) + "/" + str(ques)))
+            correct = correct + 1
+            ques = ques + 1
+            entry.delete(0, END)
+            label.config(text = question[ques])
+
+            score.config(text=("Score: " + str(correct) + "/" + str(ques)))
 
         else:
-              ques = ques + 1
-              entry.delete(0, END)
-              label.config(text = question[ques])
-              score.config(text=("Score: " + str(correct) + "/" + str(ques)))
+            ques = ques + 1
+            entry.delete(0, END)
+            if ques < count:
+                label.config(text = question[ques])
+                score.config(text=("Score: " + str(correct) + "/" + str(ques)))
+            else:
+                sys.exit(0)
 
 
-    else:
-        entry.delete(0, END)
-        label.config(text = "Correct: " + str(correct) + "out of " + str(ques))
+    #else:
+    #    #entry.delete(0, END)
+    #    #label.config(text = "Correct: " + str(correct) + "out of " + str(ques))
 
-        sys.exit()
+    #    sys.exit()
 
 
 
