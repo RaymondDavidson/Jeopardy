@@ -138,9 +138,7 @@ title = "Jeopardy: Black History Month Edition"
 #creates empty root window
 root = Tk()
 
-#ttk theme
-s = ttk.Style()
-s.theme_use("clam")
+
 
 # this is only working for the first question. Maybe that is fine.
 whois = StringVar(root, value='Who is...?')
