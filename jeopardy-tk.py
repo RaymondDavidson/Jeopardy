@@ -152,7 +152,7 @@ answer = ["Who is Dr. Angela Davis?",
 correct = 0
 ques = 0
 count = len(answer)
-title = "Jeopardy: Demonstration and Resistance"
+title = "Protest & Resist (Power to the People!)"
 
 def out():
 
