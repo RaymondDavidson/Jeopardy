@@ -218,7 +218,7 @@ windowtitle = root.wm_title(title)
 
 # grip for resizing window "root"
 grippy = ttk.Sizegrip(root)
-grippy.pack(side="left", anchor="sw")
+grippy.pack(side="right", anchor="se")
 
 #grippy.pack()
 
@@ -233,7 +233,7 @@ label.pack()
 
 # Does not Work Properly: Should be there for each question
 
-entry = ttk.Entry(root, width=100, textvariable=whois)
+entry = ttk.Entry(root, width=60, textvariable=whois)
 entry.pack()
 
 score = ttk.Label(root, text = "Score: 0/0")
