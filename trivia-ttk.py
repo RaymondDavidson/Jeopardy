@@ -160,7 +160,7 @@ grippy.pack()
 
 #this should be cleared after the first question
 rules = ttk.Label(root,text='Welcome. Please remember to enter your answers in the form of a question. Capitalization, punctualion, and spelling matter.\n\n')
-rules = rules.pack()
+rules.pack()
 
 #question as label
 font = 'arial 16 bold'

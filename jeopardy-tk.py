@@ -201,7 +201,8 @@ def stop():
 #creates empty root window
 root = Tk()
 
-
+# bind escape to root window action - Throws and error
+#root.bind("<Escape>", stop)
 
 # this is only working for the first question. Maybe that is fine.
 whois = StringVar(root, value='Who is...?')
@@ -243,7 +244,8 @@ further = ttk.Progressbar(mode="determinate",orient="horizontal", maximum=count,
 further.pack()
 
 
-
+def close(event):
+    sys.exit()
 
 
 
@@ -258,12 +260,10 @@ root.bind('<Return>', (lambda e, button=submit: submit.invoke()))
 submit.pack()
 
 # quitit button calls stop function
-quitit = tk.Button(root,text = "Quit",command = stop, fg="white", bg="red")
+leave = tk.Button(root,text = "Quit",command = stop, fg="white", bg="red")
+root.bind('<Escape>', close)
 
-#root.bind('<Escape>', stop())
-root.bind('<Escape>', (lambda e, button=quitit: quitit.invoke()))
-
-quitit.pack(side="left",anchor="se")
+leave.pack(side="left",anchor="se")
 
 
 
