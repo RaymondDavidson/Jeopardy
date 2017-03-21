@@ -245,12 +245,31 @@ label.pack()
 entry = ttk.Entry(root, width=60, textvariable=whois)
 entry.pack()
 
-score = ttk.Label(root, text = "Score: 0/0")
+
+# BLANK LABEL TEST ########
+dummy = tk.Label(root, text=" ")
+dummy.pack()
+
+###### PLACEMENT PROBLEM
+
+score = ttk.Label(root, text = "Score: 0/0", font=font)
 score.pack()
 
-# Progressbar
-further = ttk.Progressbar(mode="determinate",orient="horizontal", maximum=count,value=0,variable=ques, length=400)
-further.pack()
+
+# Submit button to continue game
+submit = tk.Button(root,text = "OK",command = out, fg="white", bg="green")
+root.bind('<Return>', (lambda e, button=submit: submit.invoke()))
+# This should put the button to the right of the score
+submit.pack()
+
+
+
+
+def dummy():
+    dummy = tk.Label(root, text=" ")
+    dummy.pack()
+
+
 
 
 
@@ -260,11 +279,28 @@ further.pack()
 
 # Buttons call functions
 
-# Submit Button calls Quiz and is default
-submit = tk.Button(root,text = "OK",command = out, fg="white", bg="green")
 
-root.bind('<Return>', (lambda e, button=submit: submit.invoke()))
-submit.pack()
+
+dummy()
+dummy()
+dummy()
+dummy()
+#Progressbar
+# Progressbar
+
+#ttk style def for progressbar
+s = ttk.Style()
+s.theme_use('clam')
+s.configure("lime.Horizontal.TProgressbar", foreground='lime', background='lime')
+
+#make and pack progressbar
+
+
+further = ttk.Progressbar(root, mode="determinate",orient="horizontal", maximum=count, variable=ques, length=300, style="lime.Horizontal.TProgressbar", value=0)
+further.pack()
+
+pb = ttk.Label(root, text="Progress")
+pb.pack()
 
 
 # quit button
