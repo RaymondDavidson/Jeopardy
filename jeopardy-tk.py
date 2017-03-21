@@ -191,6 +191,8 @@ def out():
 
 
 
+def close(event):
+    sys.exit()
 
 
 
@@ -216,11 +218,18 @@ root.geometry('{}x{}'.format(640, 480))
 #name at top of dialog
 windowtitle = root.wm_title(title)
 
+
+
+
+
 # grip for resizing window "root"
 grippy = ttk.Sizegrip(root)
 grippy.pack(side="right", anchor="se")
 
 #grippy.pack()
+
+
+
 
 #this should be cleared after the first question
 rules = ttk.Label(root,wraplength=500, text='Welcome. Please remember to enter your answers in the form of a question. Capitalization, punctualion, and spelling matter.\n\n')
@@ -244,8 +253,6 @@ further = ttk.Progressbar(mode="determinate",orient="horizontal", maximum=count,
 further.pack()
 
 
-def close(event):
-    sys.exit()
 
 
 
@@ -259,12 +266,13 @@ submit = tk.Button(root,text = "OK",command = out, fg="white", bg="green")
 root.bind('<Return>', (lambda e, button=submit: submit.invoke()))
 submit.pack()
 
+
+# quit button
 # quitit button calls stop function
 leave = tk.Button(root,text = "Quit",command = stop, fg="white", bg="red")
 root.bind('<Escape>', close)
 
-leave.pack(side="left",anchor="se")
-
+leave.pack(side="left", anchor="s")
 
 
 root.mainloop()
