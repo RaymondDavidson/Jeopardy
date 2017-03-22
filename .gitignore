@@ -1,3 +1,4 @@
 build/
 dist/
 ./jeopardy-tk.spec
+./jeopardy-tk.pyc
