@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  jeopardy-ttk.py
+#  jeopardy-tk.py
 #
 #  Copyright 2017 Rik Goldman <rik@rgoldman-ubuntu-xps>
 #
@@ -25,7 +25,9 @@
 from Tkinter import *
 import Tkinter as tk
 import sys
-import ttk
+import ttk as ttk
+import shelve
+
 
 
 question = ["(1) She is a civil-rights activist that argued for the abolition of prisons.\n\n",
@@ -85,6 +87,10 @@ question = ["(1) She is a civil-rights activist that argued for the abolition of
 "(28) She said \"Feminism is for everybody.\"\n\n",
 
 "(29) She said \"radical\" simply means \"grasping by the roots.\"\n\n"]
+
+"""
+:type :list[str]
+"""
 
 answer = ["Who is Dr. Angela Davis?",
 
@@ -192,12 +198,17 @@ def out():
 
 
 def close(event):
+    shelf = shelve.open('scores.dat') # here you will save the score variable  
+    shelf['score'] = str(correct)      # thats all, now it is saved on disk.
+    shelf.close()
     sys.exit()
 
 
 
 def stop():
-
+    shelf = shelve.open('./scores.dat') # here you will save the score variable  
+    shelf['score'] = str(correct) # thats all, now it is saved on disk.
+    shelf.close()
     sys.exit()
 
 #creates empty root window
@@ -232,7 +243,7 @@ grippy.pack(side="right", anchor="se")
 
 
 #this should be cleared after the first question
-rules = ttk.Label(root,wraplength=500, text='Welcome. Please remember to enter your answers in the form of a question. Capitalization, punctualion, and spelling matter.\n\n')
+rules = ttk.Label(root,wraplength=500, foreground="red", text='Welcome. Please remember to enter your answers in the form of a question. Capitalization, punctualion, and spelling matter.\n\n')
 rules.pack()
 
 #question as label
@@ -259,14 +270,18 @@ score.pack()
 # Submit button to continue game
 submit = tk.Button(root,text = "OK",command = out, fg="white", bg="green")
 root.bind('<Return>', (lambda e, button=submit: submit.invoke()))
-# This should put the button to the right of the score
+# This should put the button to the right of the score but does not
 submit.pack()
 
 
 
 
 def dummy():
-    dummy = tk.Label(root, text=" ")
+    """
+    Create a 2-space \"empty\" label to act as a spacer since we're not using grid
+    """
+    
+    dummy = ttk.Label(root, text=" ")
     dummy.pack()
 
 
@@ -288,17 +303,18 @@ dummy()
 #Progressbar
 # Progressbar
 
-#ttk style def for progressbar
+#ttk style def for progressbar: this feature is not working
 s = ttk.Style()
 s.theme_use('clam')
-s.configure("lime.Horizontal.TProgressbar", foreground='lime', background='lime')
+s.configure("green.Horizontal.TProgressbar", foreground='green', background='green')
 
-#make and pack progressbar
+#make and pack progressbar: feature not working (no color)
 
 
-further = ttk.Progressbar(root, mode="determinate",orient="horizontal", maximum=count, variable=ques, length=300, style="lime.Horizontal.TProgressbar", value=0)
+further = ttk.Progressbar(root, mode="determinate",orient="horizontal", maximum=count, variable=ques, length=300, style="green.Horizontal.TProgressbar", value=0)
 further.pack()
 
+#make label
 pb = ttk.Label(root, text="Progress")
 pb.pack()
 
@@ -311,4 +327,8 @@ root.bind('<Escape>', close)
 leave.pack(side="left", anchor="s")
 
 
+
 root.mainloop()
+s = shelve.open('score.txt') # here you will save the score variable  
+d[str(correct)] = score           # thats all, now it is saved on disk. 
+
