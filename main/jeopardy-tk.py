@@ -169,8 +169,7 @@ answer = ["Who is Dr. Angela Davis?",
 "Who is Dr. Angela Davis?"
 ]
 
-#troubleshooting
-#print("quiz")
+
 
 #### Set Some Vars ####
 correct = 0
@@ -217,20 +216,56 @@ def out(event):
             else:
                 stop()
 
+#identical to the function above
 
+def play():
+
+    global correct, ques, count, entry, further
+
+
+    further["value"] = ques
+
+
+    ans = entry.get()
+
+
+    if ques < count:
+        entry.focus()
+        further["value"] = ques
+        further.pack()
+
+        if ans == answer[ques]:
+
+
+
+            correct = correct + 1
+            ques = ques + 1
+            entry.delete(0, END)
+            label.config(text = question[ques])
+
+            score.config(text=("Score: " + str(correct) + "/" + str(ques)))
+
+        else:
+            ques = ques + 1
+            entry.delete(0, END)
+            if ques < count:
+                label.config(text = question[ques])
+                score.config(text=("Score: " + str(correct) + "/" + str(ques)))
+            else:
+                stop()
 
 
 def close(event):
-    shelf = shelve.open('scores.dat') # here you will save the score variable
+    shelf = shelve.open('data/scores.dat') # here you will save the score variable
     shelf['score'] = str(correct)      # thats all, now it is saved on disk.
     shelf.close() # closes the db file with scores
     pop("Thank you", "Please play again!")
     sys.exit()
 
-
+# stop and close() are identical; one if for the <Escape> key and one is for the <Escape> key.
 
 def stop():
-    shelf = shelve.open('./scores.dat') # here you will save the score variable
+    shelf = shelve.open('data/scores.dat') # here you will save the score variable
     shelf['score'] = str(correct) # thats all, now it is saved on disk.
     shelf.close()
     pop("Thank you", "Please play again!")
@@ -240,12 +275,11 @@ def stop():
 root = tk.Tk()
 
 # Create 1st pop up message box
-pop("Welcome", "Protest & Resist (Power to the People)")
+pop("Welcome", "Protest & Resist (Power to the People!)")
 pop("How to Play", "Enter your answers in the form of a question (like Jeopardy) -- Capitalization, spelling, and punctuation count. At the top of the game, you'll see possible answers. Press 'OK' to submit an answer; press 'Quit' to end the game.")
 
 
-# bind escape to root window action - Throws and error
-#root.bind("<Escape>", stop)
+
 
 # this is only working for the first question. Maybe that is fine.
 whois = StringVar(root, value='Who is...?')
@@ -264,14 +298,6 @@ bottomframe.pack( side = BOTTOM )
 windowtitle = root.wm_title(title)
 
 
-
-
-#######REMOVE########
-# grip for resizing window "root"
-#grippy = ttk.Sizegrip(bottomframe)
-#grippy.pack(side = RIGHT, anchor="se")
-
-#grippy.pack()
 
 
 
@@ -299,7 +325,7 @@ score.pack()
 
 
 # Submit button to continue game
-submit = tk.Button(bottomframe,text = "OK",command = out, fg="white", bg="green")
+submit = tk.Button(bottomframe,text = "OK",command = play, fg="white", bg="green")
 submit.pack()
 
 # If it's the last question, it makes no sense to continue: in this case, close program (record score)
