@@ -29,7 +29,7 @@ import sys
 import ttk as ttk
 import shelve
 
-credits = ["Ocho262", "FlamboyantPapayas", "ghoulmann", "Sidhant", "CY", "JF"]
+credits = ["Ocho262", "FlamboyantPapayas", "ghoulmann", "Sidhant", "CY", "JF", "RC", "EB", "MS"]
 
 
 question = ["(1) She is a civil-rights activist that argued for the abolition of prisons.\n\n",
@@ -207,7 +207,7 @@ def out(event):
 def close(event):
     shelf = shelve.open('scores.dat') # here you will save the score variable
     shelf['score'] = str(correct)      # thats all, now it is saved on disk.
-    shelf.close()
+    shelf.close() # closes the db file with scores
     pop("Thank you", "Please play again!")
     sys.exit()
 
@@ -225,7 +225,7 @@ root = tk.Tk()
 
 # Create 1st pop up message box
 pop("Welcome", "Protest & Resist (Power to the People)")
-pop("How to Play", "Enter your answers in the form of a question (like Jeopardy) -- Capitalization, spelling, and punctuation count. At the top the game, you'll see possible answers. Press 'OK' to submit an answer; press 'Quit' to end the game.")
+pop("How to Play", "Enter your answers in the form of a question (like Jeopardy) -- Capitalization, spelling, and punctuation count. At the top of the game, you'll see possible answers. Press 'OK' to submit an answer; press 'Quit' to end the game.")
 
 
 # bind escape to root window action - Throws and error
