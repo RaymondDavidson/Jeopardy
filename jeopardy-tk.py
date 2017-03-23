@@ -212,7 +212,7 @@ def stop():
     sys.exit()
 
 #creates empty root window
-root = Tk()
+root = tk.Tk()
 
 # bind escape to root window action - Throws and error
 #root.bind("<Escape>", stop)
@@ -306,18 +306,13 @@ dummy()
 dummy()
 dummy()
 dummy()
-#Progressbar
-# Progressbar
-
-#ttk style def for progressbar: color feature is not working
-s = ttk.Style()
-s.theme_use('clam')
-s.configure("green.Horizontal.TProgressbar", foreground='green', background='green')
-
-#make and pack progressbar: feature not working (no color)
 
 
-further = ttk.Progressbar(bottomframe, mode="determinate",orient="horizontal", maximum=count, variable=ques, length=300, style="green.Horizontal.TProgressbar", value=0)
+
+
+#make and pack progressbar: (no color)
+
+further = ttk.Progressbar(bottomframe, mode="determinate",orient="horizontal", maximum=count, variable=ques, length=300, value=0)
 further.pack()
 
 #make label
