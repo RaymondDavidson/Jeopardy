@@ -174,8 +174,7 @@ def out(event):
 
 
     ans = entry.get()
-    if ques == count:
-        close()
+
 
     if ques < count:
         entry.focus()
@@ -200,7 +199,8 @@ def out(event):
                 label.config(text = question[ques])
                 score.config(text=("Score: " + str(correct) + "/" + str(ques)))
             else:
-                sys.exit(0)
+                stop()
+
 
 
 
