@@ -221,7 +221,7 @@ root = Tk()
 whois = StringVar(root, value='Who is...?')
 
 # geometry for root window
-root.geometry('{}x{}'.format(600, 500))
+root.geometry('{}x{}'.format(600, 600))
 
 
 #frame experiment
@@ -236,7 +236,7 @@ windowtitle = root.wm_title(title)
 
 
 
-
+#######REMOVE########
 # grip for resizing window "root"
 #grippy = ttk.Sizegrip(bottomframe)
 #grippy.pack(side = RIGHT, anchor="se")
@@ -246,7 +246,6 @@ windowtitle = root.wm_title(title)
 
 
 
-#this should be cleared after the first question
 rules = ttk.Label(root,wraplength=500, foreground="red", text='Welcome. Please remember to enter your answers in the form of a question. Capitalization, punctualion, and spelling matter.\n\n')
 rules.pack()
 
@@ -255,17 +254,15 @@ font = 'arial 16 bold'
 label = ttk.Label(root,text = question[ques],wraplength=300, font=font)
 label.pack()
 
-# Does not Work Properly: Should be there for each question
+
 
 entry = ttk.Entry(root, width=40, textvariable=whois)
 entry.pack()
 
 
-# BLANK LABEL TEST ########
 dummy = tk.Label(root, text=" ")
 dummy.pack()
 
-###### PLACEMENT PROBLEM
 
 score = ttk.Label(bottomframe, text = "Score: 0/0", font=font)
 score.pack()
@@ -273,9 +270,15 @@ score.pack()
 
 # Submit button to continue game
 submit = tk.Button(bottomframe,text = "OK",command = out, fg="white", bg="green")
-root.bind('<Return>', (lambda e, button=submit: submit.invoke()))
-# This should put the button to the right of the score but does not
 submit.pack()
+
+# If it's the last question, it makes no sense to continue: in this case, close program (record score)
+if ques < count:
+    root.bind('<Return>', (lambda e, button=submit: submit.invoke()))
+    # This should put the button to the right of the score but does not
+else:
+	root.bind('<Return>', close)
+
 
 
 
@@ -294,12 +297,11 @@ def dummy():
 
 
 
-#ttk.Style().configure("TButton", padding=6, relief="flat", background="#ccc")
-
-# Buttons call functions
 
 
 
+
+#horizontal spacers
 dummy()
 dummy()
 dummy()
@@ -307,7 +309,7 @@ dummy()
 #Progressbar
 # Progressbar
 
-#ttk style def for progressbar: this feature is not working
+#ttk style def for progressbar: color feature is not working
 s = ttk.Style()
 s.theme_use('clam')
 s.configure("green.Horizontal.TProgressbar", foreground='green', background='green')
