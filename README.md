@@ -13,4 +13,5 @@ civil rights jeopardy - repo for HS students.
 
 With tui dialog wrapper from TurnKey GNU/Linux
 
-
+# Build
+nuitka --standalone ./main/jeopardy-tk.py
