@@ -221,7 +221,7 @@ root = Tk()
 whois = StringVar(root, value='Who is...?')
 
 # geometry for root window
-root.geometry('{}x{}'.format(640, 480))
+root.geometry('{}x{}'.format(1024, 768))
 
 
 
