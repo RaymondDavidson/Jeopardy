@@ -3,7 +3,7 @@
 #
 #  jeopardy-tk.py
 #
-#  Copyright 2017 Rik Goldman <rik@rgoldman-ubuntu-xps>
+#  Copyright 2017 Chelsea School Students and Rik Goldman <rgoldman@chelseaschool.edu>
 #
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -24,10 +24,12 @@
 
 from Tkinter import *
 import Tkinter as tk
+import tkMessageBox
 import sys
 import ttk as ttk
 import shelve
 
+credits = ["Ocho262", "FlamboyantPapayas", "ghoulmann", "Sidhant", "CY", "JF"]
 
 
 question = ["(1) She is a civil-rights activist that argued for the abolition of prisons.\n\n",
@@ -160,7 +162,10 @@ ques = 0
 count = len(answer)
 title = "Protest & Resist (Power to the People!)"
 
-def out():
+def pop(title, string):
+    tkMessageBox.showinfo(title, string)
+
+def out(event):
 
     global correct, ques, count, entry, further
 
@@ -169,6 +174,8 @@ def out():
 
 
     ans = entry.get()
+    if ques == count:
+        close()
 
     if ques < count:
         entry.focus()
@@ -198,21 +205,28 @@ def out():
 
 
 def close(event):
-    shelf = shelve.open('scores.dat') # here you will save the score variable  
+    shelf = shelve.open('scores.dat') # here you will save the score variable
     shelf['score'] = str(correct)      # thats all, now it is saved on disk.
     shelf.close()
+    pop("Thank you", "Please play again!")
     sys.exit()
 
 
 
 def stop():
-    shelf = shelve.open('./scores.dat') # here you will save the score variable  
+    shelf = shelve.open('./scores.dat') # here you will save the score variable
     shelf['score'] = str(correct) # thats all, now it is saved on disk.
     shelf.close()
+    pop("Thank you", "Please play again!")
     sys.exit()
 
 #creates empty root window
 root = tk.Tk()
+
+# Create 1st pop up message box
+pop("Welcome", "Protest & Resist (Power to the People)")
+pop("How to Play", "Enter your answers in the form of a question (like Jeopardy) -- Capitalization, spelling, and punctuation count. At the top the game, you'll see possible answers. Press 'OK' to submit an answer; press 'Quit' to end the game.")
+
 
 # bind escape to root window action - Throws and error
 #root.bind("<Escape>", stop)
@@ -246,8 +260,8 @@ windowtitle = root.wm_title(title)
 
 
 
-rules = ttk.Label(root,wraplength=500, foreground="red", text='Welcome. Please remember to enter your answers in the form of a question. Capitalization, punctualion, and spelling matter.\n\n')
-rules.pack()
+people = ttk.Label(root,wraplength=500, foreground="red", text="Dr. Angela Davis, Dr. Martin Luther King, Jr., Assata Shakur, bell hooks, Stokely Carmichael, Bobby Seale, Percy Sutton, Coretta Scott King, Huey P. Newton, Rep. John Lewis\n\n")
+people.pack()
 
 #question as label
 font = 'arial 16 bold'
@@ -273,11 +287,10 @@ submit = tk.Button(bottomframe,text = "OK",command = out, fg="white", bg="green"
 submit.pack()
 
 # If it's the last question, it makes no sense to continue: in this case, close program (record score)
-if ques < count:
-    root.bind('<Return>', (lambda e, button=submit: submit.invoke()))
-    # This should put the button to the right of the score but does not
-else:
-	root.bind('<Return>', close)
+
+root.bind('<Return>', out)
+
+
 
 
 
@@ -287,7 +300,7 @@ def dummy():
     """
     Create a 2-space \"empty\" label to act as a spacer since we're not using grid
     """
-    
+
     dummy = ttk.Label(bottomframe, text=" ")
     dummy.pack()
 
@@ -305,6 +318,15 @@ def dummy():
 dummy()
 dummy()
 dummy()
+
+# quit button
+# quitit button calls stop function
+leave = tk.Button(bottomframe,text = "Quit",command = stop, fg="white", bg="red")
+root.bind('<Escape>', close)
+
+leave.pack()
+
+
 dummy()
 
 
@@ -320,16 +342,10 @@ pb = ttk.Label(bottomframe, text="Progress")
 pb.pack()
 
 
-# quit button
-# quitit button calls stop function
-leave = tk.Button(bottomframe,text = "Quit",command = stop, fg="white", bg="red")
-root.bind('<Escape>', close)
 
-leave.pack(side="left", anchor="s")
 
 
 
 root.mainloop()
-s = shelve.open('score.txt') # here you will save the score variable  
-d[str(correct)] = score           # thats all, now it is saved on disk. 
-
+s = shelve.open('score.txt') # here you will save the score variable
+d[str(correct)] = score           # thats all, now it is saved on disk.
