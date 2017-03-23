@@ -22,6 +22,14 @@
 #
 #
 
+"""
+Summary:
+
+This is a program written in Python.
+
+
+"""
+
 from Tkinter import *
 import Tkinter as tk
 import tkMessageBox
@@ -29,7 +37,15 @@ import sys
 import ttk as ttk
 import shelve
 
+
+# people who worked on this project (in list format)
 credits = ["Ocho262", "FlamboyantPapayas", "ghoulmann", "Sidhant", "CY", "JF", "RC", "EB", "MS"]
+
+"""
+These are the prompts in the game that
+players anwer (in the form of a question
+
+"""
 
 
 question = ["(1) She is a civil-rights activist that argued for the abolition of prisons.\n\n",
