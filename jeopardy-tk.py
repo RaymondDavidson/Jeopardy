@@ -221,8 +221,12 @@ root = Tk()
 whois = StringVar(root, value='Who is...?')
 
 # geometry for root window
-root.geometry('{}x{}'.format(1024, 768))
+root.geometry('{}x{}'.format(600, 500))
 
+
+#frame experiment
+bottomframe = Frame(root)
+bottomframe.pack( side = BOTTOM )
 
 
 
@@ -234,8 +238,8 @@ windowtitle = root.wm_title(title)
 
 
 # grip for resizing window "root"
-grippy = ttk.Sizegrip(root)
-grippy.pack(side="right", anchor="se")
+#grippy = ttk.Sizegrip(bottomframe)
+#grippy.pack(side = RIGHT, anchor="se")
 
 #grippy.pack()
 
@@ -248,12 +252,12 @@ rules.pack()
 
 #question as label
 font = 'arial 16 bold'
-label = ttk.Label(root,text = question[ques],wraplength=500, font=font)
+label = ttk.Label(root,text = question[ques],wraplength=300, font=font)
 label.pack()
 
 # Does not Work Properly: Should be there for each question
 
-entry = ttk.Entry(root, width=60, textvariable=whois)
+entry = ttk.Entry(root, width=40, textvariable=whois)
 entry.pack()
 
 
@@ -263,12 +267,12 @@ dummy.pack()
 
 ###### PLACEMENT PROBLEM
 
-score = ttk.Label(root, text = "Score: 0/0", font=font)
+score = ttk.Label(bottomframe, text = "Score: 0/0", font=font)
 score.pack()
 
 
 # Submit button to continue game
-submit = tk.Button(root,text = "OK",command = out, fg="white", bg="green")
+submit = tk.Button(bottomframe,text = "OK",command = out, fg="white", bg="green")
 root.bind('<Return>', (lambda e, button=submit: submit.invoke()))
 # This should put the button to the right of the score but does not
 submit.pack()
@@ -281,7 +285,7 @@ def dummy():
     Create a 2-space \"empty\" label to act as a spacer since we're not using grid
     """
     
-    dummy = ttk.Label(root, text=" ")
+    dummy = ttk.Label(bottomframe, text=" ")
     dummy.pack()
 
 
@@ -311,17 +315,17 @@ s.configure("green.Horizontal.TProgressbar", foreground='green', background='gre
 #make and pack progressbar: feature not working (no color)
 
 
-further = ttk.Progressbar(root, mode="determinate",orient="horizontal", maximum=count, variable=ques, length=300, style="green.Horizontal.TProgressbar", value=0)
+further = ttk.Progressbar(bottomframe, mode="determinate",orient="horizontal", maximum=count, variable=ques, length=300, style="green.Horizontal.TProgressbar", value=0)
 further.pack()
 
 #make label
-pb = ttk.Label(root, text="Progress")
+pb = ttk.Label(bottomframe, text="Progress")
 pb.pack()
 
 
 # quit button
 # quitit button calls stop function
-leave = tk.Button(root,text = "Quit",command = stop, fg="white", bg="red")
+leave = tk.Button(bottomframe,text = "Quit",command = stop, fg="white", bg="red")
 root.bind('<Escape>', close)
 
 leave.pack(side="left", anchor="s")
