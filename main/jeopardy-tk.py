@@ -255,7 +255,7 @@ def next():
                 stop()
 
 def close(event):
-    shelf = shelve.open('scores.dat') # here you will save the score variable
+    shelf = shelve.open('data/scores.dat') # here you will save the score variable
     shelf['score'] = str(correct)      # thats all, now it is saved on disk.
     shelf.close() # closes the db file with scores
     pop("Thank you", "Please play again!")
@@ -264,7 +264,7 @@ def close(event):
 
 
 def stop():
-    shelf = shelve.open('./scores.dat') # here you will save the score variable
+    shelf = shelve.open('data/scores.dat') # here you will save the score variable
     shelf['score'] = str(correct) # thats all, now it is saved on disk.
     shelf.close()
     pop("Thank you", "Please play again!")
