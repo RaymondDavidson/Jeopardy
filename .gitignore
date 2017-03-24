@@ -2,3 +2,6 @@ build/
 dist/
 ./jeopardy-tk.spec
 ./jeopardy-tk.pyc
+#main/build
+nuitka/
+
