@@ -1,5 +1,5 @@
 academic-fair (1.0-1) unstable; urgency=low
 
-  * source package automatically created by stdeb 0.8.5
+  * source package automatically created by stdeb 0.6.0+git
 
- -- unknown <unknown@unknown>  Fri, 24 Mar 2017 09:19:51 -0400
+ -- unknown <unknown@unknown>  Fri, 24 Mar 2017 10:02:06 -0400

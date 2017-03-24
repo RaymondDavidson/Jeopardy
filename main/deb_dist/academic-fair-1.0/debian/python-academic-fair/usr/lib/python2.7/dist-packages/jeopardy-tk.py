@@ -39,11 +39,11 @@ import shelve
 
 
 # people who worked on this project (in list format)
-credits = ["Ocho262", "FlamboyantPapayas", "ghoulmann", "Sidhant", "CY", "JF", "RC", "EB", "MS"]
+credits = ["Ocho262", "FlamboyantPapayas", "ghoulmann", "Sidhant", "IHopRocks", "JF", "RC", "EB", "MS"]
 
 """
 These are the prompts in the game that
-players anwer (in the form of a question
+players answer (in the form of a question)
 
 """
 
@@ -106,9 +106,9 @@ question = ["(1) She is a civil-rights activist that argued for the abolition of
 
 "(29) She said \"radical\" simply means \"grasping by the roots.\"\n\n"]
 
-"""
-:type :list[str]
-"""
+
+# These are answers that are acceptable; in the same order as the questions.
+# This is a Python list.
 
 answer = ["Who is Dr. Angela Davis?",
 
@@ -171,7 +171,7 @@ answer = ["Who is Dr. Angela Davis?",
 
 
 
-#### Set Vars ####
+# Set Variables
 correct = 0
 ques = 0
 count = len(answer)
@@ -181,7 +181,7 @@ title = "Protest & Resist (Power to the People!)"
 def pop(title, string):
     tkMessageBox.showinfo(title, string)
 
-#method for continuing (same as next, but without parameter
+# method for continuing (same as next, but without parameter
 def out(event):
 
     global correct, ques, count, entry, further
@@ -271,18 +271,25 @@ def stop():
     pop("Thank you", "Please play again!")
     sys.exit()
 
+# method for repeated use of horizontal spacer
+def dummy():
+    """
+    Create a 2-space \"empty\" label to act as a spacer since we're not using grid
+    """
+
+    dummy = ttk.Label(bottomframe, text=" ")
+    dummy.pack()
+
+
 #creates empty root window
 root = tk.Tk()
 # geometry for root window
-
 root.geometry('{}x{}'.format(600, 800))
-
 #name at top of dialog
 windowtitle = root.wm_title(title)
-
-# Create 1st pop up message boxes
-pop("Welcome", "Protest & Resist (Power to the People)")
-pop("How to Play", "Enter your answers in the form of a question (like Jeopardy) -- Capitalization, spelling, and punctuation count. At the top of the game, you'll see possible answers. Press 'OK' to submit an answer; press 'Quit' to end the game.")
+# Create pop-up message boxes on start, after root window is shaped
+pop("Welcome", "Protest & Resist (Power to the People!)")
+pop("How to Play", "Enter your answers in the form of a question (like Jeopardy) -- Capitalization, spelling, and punctuation count. At the top of the game, you'll see possible answers. Press 'OK' (or <Return>) to submit an answer; press 'Quit' (or <Escape>) to end the game.")
 
 
 
@@ -290,12 +297,12 @@ pop("How to Play", "Enter your answers in the form of a question (like Jeopardy)
 # this is only for the first question
 whois = StringVar(root, value='Who is...?')
 
-#frame for lower elements
+#frame for lower elements (to keep organized, prevent overlap)
 bottomframe = Frame(root)
 bottomframe.pack( side = BOTTOM )
 
 
-# Learning Content: Reminder for top of Window
+# Reminder for top of Window (text in red)
 people = ttk.Label(root,wraplength=500, foreground="red", text="Dr. Angela Davis, Dr. Martin Luther King, Jr., Assata Shakur, bell hooks, Stokely Carmichael, Bobby Seale, Percy Sutton, Coretta Scott King, Huey P. Newton, Rep. John Lewis\n\n")
 people.pack()
 
@@ -310,8 +317,7 @@ entry = ttk.Entry(root, width=40, textvariable=whois)
 entry.pack()
 
 # this code for a horizontal spacer. It appears later as a method
-dummy = tk.Label(root, text=" ")
-dummy.pack()
+dummy()
 
 # current score output
 score = ttk.Label(bottomframe, text = "Score: 0/0", font=font)
@@ -326,23 +332,6 @@ submit.pack()
 # todo: check to see if this isn't handled in out or go methods
 
 root.bind('<Return>', out)
-
-
-
-
-
-
-# method for repeated use of horizontal spacer
-def dummy():
-    """
-    Create a 2-space \"empty\" label to act as a spacer since we're not using grid
-    """
-
-    dummy = ttk.Label(bottomframe, text=" ")
-    dummy.pack()
-
-
-
 
 
 
@@ -372,11 +361,11 @@ dummy()
 
 
 
-#make and pack progressbar: (green on windows, grey on linux, striped on mac
+# make and pack progressbar: (green on windows, grey on linux, striped on mac)
 further = ttk.Progressbar(bottomframe, mode="determinate",orient="horizontal", maximum=count, variable=ques, length=300, value=0)
 further.pack()
 
-#make label for progressbar
+# make label for progressbar
 pb = ttk.Label(bottomframe, text="Progress")
 pb.pack()
 
@@ -384,5 +373,5 @@ pb.pack()
 root.mainloop()
 
 #not sure this is still relevent
-s = shelve.open('data/score.txt') # here you will save the score variable
-d[str(correct)] = score           # thats all, now it is saved on disk.
+#s = shelve.open('data/score.txt') # here you will save the score variable
+#d[str(correct)] = score           # thats all, now it is saved on disk.

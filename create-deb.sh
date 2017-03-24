@@ -2,7 +2,7 @@
 
 # dependencies
 sudo apt update
-sudo apt install -y stdeb
+sudo apt install -y python-stdeb
 
 cd main
 
