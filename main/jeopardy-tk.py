@@ -30,6 +30,7 @@ This is a program written in Python.
 
 """
 
+#### Dependencies ####
 from Tkinter import *
 import Tkinter as tk
 import tkMessageBox
@@ -37,16 +38,16 @@ import sys
 import ttk as ttk
 import shelve
 
+#### Lists ####
 
 # people who worked on this project (in list format)
-credits = ["Ocho262", "FlamboyantPapayas", "ghoulmann", "Sidhant", "IHopRocks", "JF", "RC", "EB", "MS"]
+credits = ["Ocho262", "FlamboyantPapayas", "ghoulmann", "Sidhant", "IHopRocks", "Raymond R. Davidson", "RC", "EB", "MS", "Shaun"]
 
 """
 These are the prompts in the game that
 players answer (in the form of a question)
 
 """
-
 
 question = ["(1) She is a civil-rights activist that argued for the abolition of prisons.\n\n",
 
@@ -107,8 +108,9 @@ question = ["(1) She is a civil-rights activist that argued for the abolition of
 "(29) She said \"radical\" simply means \"grasping by the roots.\"\n\n"]
 
 
-# These are answers that are acceptable; in the same order as the questions.
 # This is a Python list.
+# Answers that match the above questions (in same order).
+
 
 answer = ["Who is Dr. Angela Davis?",
 
@@ -169,20 +171,22 @@ answer = ["Who is Dr. Angela Davis?",
 "Who is Dr. Angela Davis?"
 ]
 
+#### Variables ####
 
-
-# Set Variables
+# Set Variables (variables represent values that change)
 correct = 0
 ques = 0
 count = len(answer)
 title = "Protest & Resist (Power to the People!)"
 
-# method for pop up dialogs
+
+#### Functions Section ######
+# function for pop up dialogs
 def pop(title, string):
     tkMessageBox.showinfo(title, string)
 
-# method for continuing (same as next, but without parameter
-def out(event):
+# function for continuing
+def out(*event):
 
     global correct, ques, count, entry, further
 
@@ -216,79 +220,36 @@ def out(event):
                 label.config(text = question[ques])
                 score.config(text=("Score: " + str(correct) + "/" + str(ques)))
             else:
-                stop()
-
-# as above but without parameter
-def next():
-
-    global correct, ques, count, entry, further
+                close()
 
 
-    further["value"] = ques
-
-
-    ans = entry.get()
-
-
-    if ques < count:
-        entry.focus()
-        further["value"] = ques
-        further.pack()
-
-        if ans == answer[ques]:
-
-
-
-            correct = correct + 1
-            ques = ques + 1
-            entry.delete(0, END)
-            label.config(text = question[ques])
-
-            score.config(text=("Score: " + str(correct) + "/" + str(ques)))
-
-        else:
-            ques = ques + 1
-            entry.delete(0, END)
-            if ques < count:
-                label.config(text = question[ques])
-                score.config(text=("Score: " + str(correct) + "/" + str(ques)))
-            else:
-                stop()
-# Exit safely (same as below but with parameter)
-def close(event):
+# Quit/Close safely & record score
+def close(*event):
     shelf = shelve.open('data/scores.dat') # here you will save the score variable
     shelf['score'] = str(correct)      # thats all, now it is saved on disk.
     shelf.close() # closes the db file with scores
     pop("Thank you", "Please play again!")
     sys.exit()
 
-
-# exit safely (as above)
-def stop():
-    shelf = shelve.open('data/scores.dat') # here you will save the score variable
-    shelf['score'] = str(correct) # thats all, now it is saved on disk.
-    shelf.close()
-    pop("Thank you", "Please play again!")
-    sys.exit()
-
-# method for repeated use of horizontal spacer
+# function for repeated use of horizontal spacer
 def dummy():
-    """
-    Create a 2-space \"empty\" label to act as a spacer since we're not using grid
-    """
-
     dummy = ttk.Label(bottomframe, text=" ")
     dummy.pack()
 
+# creates empty root window: This is the first ACTION
+# the previous lines PREPARED for ACTION
 
-#creates empty root window
 root = tk.Tk()
-# geometry for root window
+
+# sets geometry for root window
 root.geometry('{}x{}'.format(600, 800))
+
 #name at top of dialog
 windowtitle = root.wm_title(title)
+
 # Create pop-up message boxes on start, after root window is shaped
 pop("Welcome", "Protest & Resist (Power to the People!)")
+
 pop("How to Play", "Enter your answers in the form of a question (like Jeopardy) -- Capitalization, spelling, and punctuation count. At the top of the game, you'll see possible answers. Press 'OK' (or <Return>) to submit an answer; press 'Quit' (or <Escape>) to end the game.")
 
 
@@ -304,6 +265,7 @@ bottomframe.pack( side = BOTTOM )
 
 # Reminder for top of Window (text in red)
 people = ttk.Label(root,wraplength=500, foreground="red", text="Dr. Angela Davis, Dr. Martin Luther King, Jr., Assata Shakur, bell hooks, Stokely Carmichael, Bobby Seale, Percy Sutton, Coretta Scott King, Huey P. Newton, Rep. John Lewis\n\n")
+
 people.pack()
 
 #question as label
@@ -325,7 +287,7 @@ score.pack()
 
 
 # OK button to continue game, submit answer
-submit = tk.Button(bottomframe,text = "OK",command = next, fg="white", bg="green")
+submit = tk.Button(bottomframe,text = "OK",command = out, fg="white", bg="green")
 submit.pack()
 
 # If it's the last question, it makes no sense to continue: in this case, close program (record score)
@@ -345,9 +307,8 @@ dummy()
 dummy()
 dummy()
 
-# quit button
-# quit button calls stop function
-leave = tk.Button(bottomframe,text = "Quit",command = stop, fg="white", bg="red")
+# quit button calls "close" function
+leave = tk.Button(bottomframe,text = "Quit",command = close, fg="white", bg="red")
 leave.pack()
 
 # Use <Escape> to quit using close method
