@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Fri, 24 Mar 2017 17:10:07 -0400
+Source: cs-academic-fair
+Binary: python-cs-academic-fair
+Architecture: source
+Version: 17.03.24-1
+Distribution: unstable
+Urgency: low
+Maintainer: unknown <unknown@unknown>
+Changed-By: unknown <unknown@unknown>
+Description:
+ python-cs-academic-fair - UNKNOWN
+Changes:
+ cs-academic-fair (17.03.24-1) unstable; urgency=low
+ .
+   * source package automatically created by stdeb 0.8.5
+Checksums-Sha1:
+ c1133dbc66f869af17d202ef500cead8840444cb 906 cs-academic-fair_17.03.24-1.dsc
+ 0a3c7d005ecac9b45da5fed11323e80a118d4ee5 4488 cs-academic-fair_17.03.24.orig.tar.gz
+ 666825f923ef21c65ffce8c7ead54da83a08e3af 816 cs-academic-fair_17.03.24-1.debian.tar.xz
+Checksums-Sha256:
+ 08423a7e04ad7216a8f16272d82da66bbf5879c1abd4b02f23e59823c4962b82 906 cs-academic-fair_17.03.24-1.dsc
+ 0ec46f6d1651b8de032776748250d88a6317c31560fe4fa32d9bb81cd6f778de 4488 cs-academic-fair_17.03.24.orig.tar.gz
+ 9cde1960d6dc3fde0560c71581847d979a82ba1af59215b52edc631a715e4439 816 cs-academic-fair_17.03.24-1.debian.tar.xz
+Files:
+ 50c8d805a52ad52ea02210bc7f90cb21 906 python optional cs-academic-fair_17.03.24-1.dsc
+ 269ec67a07031b7d8e4abd9368c6a360 4488 python optional cs-academic-fair_17.03.24.orig.tar.gz
+ 6ab0b2d26a280c2ca31055c366bcb299 816 python optional cs-academic-fair_17.03.24-1.debian.tar.xz

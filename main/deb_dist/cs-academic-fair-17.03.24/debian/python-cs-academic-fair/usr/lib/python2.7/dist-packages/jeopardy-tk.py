@@ -229,7 +229,48 @@ def out(*event):
                 label.config(text = question[ques])
                 score.config(text=("Score: " + str(correct) + "/" + str(ques)))
             else:
-                close()
+
+                stop()
+
+
+
+def play():
+
+    global correct, ques, count, entry, further
+
+
+    further["value"] = ques
+
+
+    ans = entry.get()
+
+
+    if ques < count:
+        entry.focus()
+        further["value"] = ques
+        further.pack()
+
+        if ans == answer[ques]:
+
+
+
+            correct = correct + 1
+            ques = ques + 1
+            entry.delete(0, END)
+            label.config(text = question[ques])
+
+            score.config(text=("Score: " + str(correct) + "/" + str(ques)))
+
+        else:
+            ques = ques + 1
+            entry.delete(0, END)
+            if ques < count:
+                label.config(text = question[ques])
+                score.config(text=("Score: " + str(correct) + "/" + str(ques)))
+            else:
+                stop()
+
+
 
 def close(*event):
 
