@@ -22,10 +22,16 @@
 #
 #
 
+# the pound or hash symbol means a 1 line comment follows; comments are ignored by the interpreter
+
 """
+Three consecutive quotes signifies the
+start of a multi-line comment
+
+
 Summary:
 
-This is a program written in Python.
+This is a program written in Python. It...
 
 
 """
@@ -184,6 +190,7 @@ title = "Protest & Resist (Power to the People!)"
 
 #### Functions Section ######
 # function for pop up dialogs
+
 def pop(title, string):
     tkMessageBox.showinfo(title, string)
 
@@ -273,64 +280,33 @@ def close(*event):
     pop("Thank you", "Please play again!")
     sys.exit()
 
-
-# stop and close() are identical; one if for the <Escape> key and one is for the <Escape> key.
-
-def stop():
-    shelf = shelve.open('data/scores.dat') # here you will save the score variable
-    shelf['score'] = str(correct) # thats all, now it is saved on disk.
-    shelf.close()
-    pop("Thank you", "Please play again!")
-    sys.exit()
-
-#creates empty root window
-root = tk.Tk()
-
-# Create 1st pop up message box
-pop("Welcome", "Protest & Resist (Power to the People!)")
-pop("How to Play", "Enter your answers in the form of a question (like Jeopardy) -- Capitalization, spelling, and punctuation count. At the top of the game, you'll see possible answers. Press 'OK' to submit an answer; press 'Quit' to end the game.")
-
-
-
-
-# this is only working for the first question. Maybe that is fine.
-whois = StringVar(root, value='Who is...?')
-
-# geometry for root window
-root.geometry('{}x{}'.format(600, 600))
-
-
-#frame inside window to control bottom element layout
-bottomframe = Frame(root)
-bottomframe.pack( side = BOTTOM )
-
-
-# function for repeated use of horizontal spacer
 def dummy():
-    dummy = ttk.Label(bottomframe, text=" ")
-    dummy.pack()
+    spacer = ttk.Label(root, text = " ")
+    spacer.pack()
 
-# creates empty root window: This is the first ACTION
-# the previous lines PREPARED for ACTION
+
+
+# creates empty root window: This is the first action-
+# the previous lines PREPARED for action
 
 root = tk.Tk()
 
 # sets geometry for root window
-root.geometry('{}x{}'.format(600, 800))
+root.geometry('{}x{}'.format(600, 700))
 
 
 #name at top of dialog
 windowtitle = root.wm_title(title)
 
-# Create pop-up message boxes on start, after root window is shaped
+# Create 1st pop up message box
 pop("Welcome", "Protest & Resist (Power to the People!)")
+pop("How to Play", "Enter your answers in the form of a question (like Jeopardy) -- Capitalization, spelling, and punctuation count. At the top of the game, you'll see possible answers. Press 'OK' to submit an answer; press 'Quit' to end the game.")
 
-pop("How to Play", "Enter your answers in the form of a question (like Jeopardy) -- Capitalization, spelling, and punctuation count. At the top of the game, you'll see possible answers. Press 'OK' (or <Return>) to submit an answer; press 'Quit' (or <Escape>) to end the game.")
+#frame inside window to control bottom element layout
+bottomframe = Frame(root)
+bottomframe.pack( side = BOTTOM )
 
-
-
-
-# this is only for the first question
+# this 'starter answer' is only for the first question
 whois = StringVar(root, value='Who is...?')
 
 #frame for lower elements (to keep organized, prevent overlap)
@@ -402,5 +378,3 @@ pb.pack()
 
 #loop to continue the program
 root.mainloop()
-
-#not sure this is still relevent
