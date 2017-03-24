@@ -1,0 +1,12 @@
+
+# Automatically added by dhpython:
+if which pyclean >/dev/null 2>&1; then
+	pyclean -p python-academic-fair 
+else
+	dpkg -L python-academic-fair | grep \.py$ | while read file
+	do
+		rm -f "${file}"[co] >/dev/null
+  	done
+fi
+
+# End automatically added section

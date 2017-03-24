@@ -1,0 +1,10 @@
+Package: python-academic-fair
+Source: academic-fair
+Version: 1.0-1
+Architecture: all
+Maintainer: unknown <unknown@unknown>
+Installed-Size: 24
+Depends: python:any (<< 2.8), python:any (>= 2.7.5-5~)
+Section: python
+Priority: optional
+Description: UNKNOWN

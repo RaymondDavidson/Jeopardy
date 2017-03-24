@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Fri, 24 Mar 2017 09:19:51 -0400
+Source: academic-fair
+Binary: python-academic-fair
+Architecture: source
+Version: 1.0-1
+Distribution: unstable
+Urgency: low
+Maintainer: unknown <unknown@unknown>
+Changed-By: unknown <unknown@unknown>
+Description:
+ python-academic-fair - UNKNOWN
+Changes:
+ academic-fair (1.0-1) unstable; urgency=low
+ .
+   * source package automatically created by stdeb 0.8.5
+Checksums-Sha1:
+ 97ea5f596b7a259d32c964bd37d526f37f7204e6 844 academic-fair_1.0-1.dsc
+ 620a9aef6d583842695c0e72184111eb0195cc1e 4449 academic-fair_1.0.orig.tar.gz
+ 1efd535bec03b58a94b067fc9cb2ada6eef5d1d9 832 academic-fair_1.0-1.debian.tar.xz
+Checksums-Sha256:
+ a4cb52654d7024d61271d349ffbca888a4231bfec7dd86c76f1c6eae0cf26350 844 academic-fair_1.0-1.dsc
+ a6ee6287cef609d57cb846cf9e03b9bcf41e1eabc32ce1986150ab2125ee145b 4449 academic-fair_1.0.orig.tar.gz
+ 27420933fdcd97f37a8a42d38b6ae5783d33d75ec1431882222ccf9432367edf 832 academic-fair_1.0-1.debian.tar.xz
+Files:
+ af2a32325e7a6fb08d733154e1eeec8d 844 python optional academic-fair_1.0-1.dsc
+ a779a8fb2a70b25a01f52a0f6f523222 4449 python optional academic-fair_1.0.orig.tar.gz
+ f6bc3b437510fca65d2add54b75859dc 832 python optional academic-fair_1.0-1.debian.tar.xz
