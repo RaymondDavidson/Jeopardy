@@ -1,6 +1,6 @@
 from distutils.core import setup
-setup(name='Power to the People',
-      version='1.0',
+setup(name='cs-academic-fair',
+      version='17.03.24',
       py_modules=['jeopardy-tk'],
-	  package_data={'Power to the People': ['data/*.dat']},
+	  package_data={'academic-fair': ['data/*.dat']},
       )

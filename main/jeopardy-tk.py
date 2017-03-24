@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#! /usr/bin/env python
 # -*- coding: utf-8 -*-
 #
 #  jeopardy-tk.py
@@ -30,6 +30,7 @@ This is a program written in Python.
 
 """
 
+#### Dependencies ####
 from Tkinter import *
 import Tkinter as tk
 import tkMessageBox
@@ -37,16 +38,16 @@ import sys
 import ttk as ttk
 import shelve
 
+#### Lists ####
 
 # people who worked on this project (in list format)
-credits = ["Ocho262", "FlamboyantPapayas", "ghoulmann", "Sidhant", "CY", "JF", "RC", "EB", "MS"]
+credits = ["Ocho262", "FlamboyantPapayas", "ghoulmann", "Sidhant", "IHopRocks", "Raymond R. Davidson", "RC", "EB", "MS", "Shaun"]
 
 """
 These are the prompts in the game that
-players anwer (in the form of a question
+players answer (in the form of a question)
 
 """
-
 
 question = ["(1) She is a civil-rights activist that argued for the abolition of prisons.\n\n",
 
@@ -106,9 +107,10 @@ question = ["(1) She is a civil-rights activist that argued for the abolition of
 
 "(29) She said \"radical\" simply means \"grasping by the roots.\"\n\n"]
 
-"""
-:type :list[str]
-"""
+
+# This is a Python list.
+# Answers that match the above questions (in same order).
+
 
 answer = ["Who is Dr. Angela Davis?",
 
@@ -170,17 +172,23 @@ answer = ["Who is Dr. Angela Davis?",
 ]
 
 
+#### Variables ####
 
-#### Set Some Vars ####
+
+# Set Variables (variables represent values that change)
 correct = 0
 ques = 0
 count = len(answer)
 title = "Protest & Resist (Power to the People!)"
 
+
+#### Functions Section ######
+# function for pop up dialogs
 def pop(title, string):
     tkMessageBox.showinfo(title, string)
 
-def out(event):
+# function for continuing
+def out(*event):
 
     global correct, ques, count, entry, further
 
@@ -214,9 +222,10 @@ def out(event):
                 label.config(text = question[ques])
                 score.config(text=("Score: " + str(correct) + "/" + str(ques)))
             else:
+
                 stop()
 
-#identical to the function above
+
 
 def play():
 
@@ -255,12 +264,15 @@ def play():
                 stop()
 
 
-def close(event):
+
+def close(*event):
+
     shelf = shelve.open('data/scores.dat') # here you will save the score variable
     shelf['score'] = str(correct)      # thats all, now it is saved on disk.
     shelf.close() # closes the db file with scores
     pop("Thank you", "Please play again!")
     sys.exit()
+
 
 # stop and close() are identical; one if for the <Escape> key and one is for the <Escape> key.
 
@@ -288,106 +300,107 @@ whois = StringVar(root, value='Who is...?')
 root.geometry('{}x{}'.format(600, 600))
 
 
-#frame experiment
+#frame inside window to control bottom element layout
 bottomframe = Frame(root)
 bottomframe.pack( side = BOTTOM )
 
+
+# function for repeated use of horizontal spacer
+def dummy():
+    dummy = ttk.Label(bottomframe, text=" ")
+    dummy.pack()
+
+# creates empty root window: This is the first ACTION
+# the previous lines PREPARED for ACTION
+
+root = tk.Tk()
+
+# sets geometry for root window
+root.geometry('{}x{}'.format(600, 800))
 
 
 #name at top of dialog
 windowtitle = root.wm_title(title)
 
+# Create pop-up message boxes on start, after root window is shaped
+pop("Welcome", "Protest & Resist (Power to the People!)")
+
+pop("How to Play", "Enter your answers in the form of a question (like Jeopardy) -- Capitalization, spelling, and punctuation count. At the top of the game, you'll see possible answers. Press 'OK' (or <Return>) to submit an answer; press 'Quit' (or <Escape>) to end the game.")
 
 
 
 
+# this is only for the first question
+whois = StringVar(root, value='Who is...?')
 
+#frame for lower elements (to keep organized, prevent overlap)
+bottomframe = Frame(root)
+bottomframe.pack( side = BOTTOM )
+
+
+
+# Reminder for top of Window (text in red)
 people = ttk.Label(root,wraplength=500, foreground="red", text="Dr. Angela Davis, Dr. Martin Luther King, Jr., Assata Shakur, bell hooks, Stokely Carmichael, Bobby Seale, Percy Sutton, Coretta Scott King, Huey P. Newton, Rep. John Lewis\n\n")
+
 people.pack()
 
 #question as label
-font = 'arial 16 bold'
+font = 'arial 15 bold'
 label = ttk.Label(root,text = question[ques],wraplength=300, font=font)
 label.pack()
 
 
-
+# textbox for answer submissions
 entry = ttk.Entry(root, width=40, textvariable=whois)
 entry.pack()
 
+# horizontal spacer: calls dummy() function above
+dummy()
 
-dummy = tk.Label(root, text=" ")
-dummy.pack()
-
-
+# current score output
 score = ttk.Label(bottomframe, text = "Score: 0/0", font=font)
 score.pack()
 
 
-# Submit button to continue game
-submit = tk.Button(bottomframe,text = "OK",command = play, fg="white", bg="green")
+
+
+# Submit button: to continue game, submit answer (calls out() function)
+submit = tk.Button(bottomframe,text = "OK",command = out, fg="white", bg="green")
 submit.pack()
 
-# If it's the last question, it makes no sense to continue: in this case, close program (record score)
 
 root.bind('<Return>', out)
 
 
-
-
-
-
-
-def dummy():
-    """
-    Create a 2-space \"empty\" label to act as a spacer since we're not using grid
-    """
-
-    dummy = ttk.Label(bottomframe, text=" ")
-    dummy.pack()
-
-
-
-
-
-
-
-
-
-
-
-#horizontal spacers
+#horizontal spacers (calling dummy() function defined above)
 dummy()
 dummy()
 dummy()
 
-# quit button
-# quitit button calls stop function
-leave = tk.Button(bottomframe,text = "Quit",command = stop, fg="white", bg="red")
-root.bind('<Escape>', close)
-
+# quit button calls "close" function
+leave = tk.Button(bottomframe,text = "Quit",command = close, fg="white", bg="red")
 leave.pack()
 
+# Use <Escape> to quit using close method
+root.bind('<Escape>', close)
 
+
+
+#spacer
 dummy()
 
 
 
 
-#make and pack progressbar: (no color)
-
+# make and pack progressbar: (green on windows, grey on linux, striped on mac)
 further = ttk.Progressbar(bottomframe, mode="determinate",orient="horizontal", maximum=count, variable=ques, length=300, value=0)
 further.pack()
 
-#make label
+# make label for progressbar
 pb = ttk.Label(bottomframe, text="Progress")
 pb.pack()
 
-
-
-
-
-
+#loop to continue the program
 root.mainloop()
-s = shelve.open('score.txt') # here you will save the score variable
-d[str(correct)] = score           # thats all, now it is saved on disk.
+
+#not sure this is still relevent
