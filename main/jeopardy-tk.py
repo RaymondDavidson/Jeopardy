@@ -192,7 +192,9 @@ title = "Protest & Resist (Power to the People!)"
 # function for pop up dialogs
 
 def pop(title, string):
-    tkMessageBox.showinfo(title, string)
+    msg = tkMessageBox
+    msg = msg.showinfo(title, string)
+
 
 # function for continuing
 def out(*event):
@@ -233,17 +235,23 @@ def out(*event):
 
 def close(*event):
 
-    shelf = shelve.open('data/scores.dat') # here you will save the score variable
-    shelf['score'] = str(correct)      # thats all, now it is saved on disk.
-    shelf.close() # closes the db file with scores
-    pop("Thank you", "Please play again!")
+    try:
+        shelf = shelve.open('data/scores.dat') # here you will save the score variable
+        shelf['score'] = str(correct)      # thats all, now it is saved on disk.
+        shelf.close() # closes the db file with scores
+        pop("Thank you", "Thank you for learning with us!")
+    except:
+        print "Score could not be recorded."
+
     sys.exit()
 
-def dummy():
-    spacer = ttk.Label(root, text = " ")
+def dummy(parent):
+    spacer = ttk.Label(parent, text = " ")
     spacer.pack()
 
-
+#def frameDummy():
+#    spacer = ttk.Label(bottomframe, text = " ")
+#    spacer.pack()
 
 # creates empty root window: This is the first action-
 # the previous lines PREPARED for action
@@ -270,11 +278,12 @@ whois = StringVar(root, value='Who is...?')
 
 #frame for lower elements (to keep organized, prevent overlap)
 bottomframe = Frame(root)
-bottomframe.pack( side = BOTTOM )
+bottomframe.pack(side=BOTTOM)
 
 
 
 # Reminder for top of Window (text in red)
+dummy(root)
 people = ttk.Label(root,wraplength=500, foreground="red", text="Dr. Angela Davis, Dr. Martin Luther King, Jr., Assata Shakur, bell hooks, Stokely Carmichael, Bobby Seale, Percy Sutton, Coretta Scott King, Huey P. Newton, Rep. John Lewis\n\n")
 
 people.pack()
@@ -285,12 +294,23 @@ label = ttk.Label(root,text = question[ques],wraplength=300, font=font)
 label.pack()
 
 
+#experimental middle frame to hold the OK button still
 # textbox for answer submissions
-entry = ttk.Entry(root, width=40, textvariable=whois)
+
+midFrame = Frame(root)
+midFrame.pack(side=BOTTOM)
+
+entry = ttk.Entry(midFrame, width=40, textvariable=whois)
 entry.pack()
 
+dummy(midFrame)
+# original
+#entry = ttk.Entry(root, width=40, textvariable=whois)
+#entry.pack()
+
+
 # horizontal spacer: calls dummy() function above
-dummy()
+dummy(bottomframe)
 
 # current score output
 score = ttk.Label(bottomframe, text = "Score: 0/0", font=font)
@@ -300,17 +320,44 @@ score.pack()
 
 
 # Submit button: to continue game, submit answer (calls out() function)
-submit = tk.Button(bottomframe,text = "OK",command = out, fg="white", bg="green")
+submit = tk.Button(midFrame,text = "OK",command = out, fg="white", bg="green")
 submit.pack()
+#below submit button, spacers
+dummy(midFrame)
+dummy(midFrame)
+dummy(midFrame)
 
+# Working original
+#submit = tk.Button(root,text = "OK",command = out, fg="white", bg="green")
+#submit.pack()
 
 root.bind('<Return>', out)
 
 
 #horizontal spacers (calling dummy() function defined above)
-dummy()
-dummy()
-dummy()
+dummy(bottomframe)
+
+
+
+
+
+
+
+
+# make and pack progressbar: (green on windows, grey on linux, striped on mac)
+further = ttk.Progressbar(bottomframe, mode="determinate",orient="horizontal", maximum=count, variable=ques, length=300, value=0)
+further.pack()
+
+# spacer for the invisible frame for the bottom
+dummy(bottomframe)
+
+# make label for progressbar
+pb = ttk.Label(bottomframe, text="Progress")
+pb.pack()
+
+#spacers call the frameDummy() function
+dummy(bottomframe)
+dummy(bottomframe)
 
 # quit button calls "close" function
 leave = tk.Button(bottomframe,text = "Quit",command = close, fg="white", bg="red")
@@ -322,18 +369,6 @@ root.bind('<Escape>', close)
 
 
 #spacer
-dummy()
-
-
-
-
-# make and pack progressbar: (green on windows, grey on linux, striped on mac)
-further = ttk.Progressbar(bottomframe, mode="determinate",orient="horizontal", maximum=count, variable=ques, length=300, value=0)
-further.pack()
-
-# make label for progressbar
-pb = ttk.Label(bottomframe, text="Progress")
-pb.pack()
-
+dummy(bottomframe)
 #loop to continue the program
 root.mainloop()

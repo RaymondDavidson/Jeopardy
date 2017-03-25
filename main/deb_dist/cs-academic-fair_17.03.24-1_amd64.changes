@@ -1,5 +1,5 @@
 Format: 1.8
-Date: Fri, 24 Mar 2017 17:10:07 -0400
+Date: Fri, 24 Mar 2017 17:46:59 -0400
 Source: cs-academic-fair
 Binary: python-cs-academic-fair
 Architecture: source all
@@ -15,17 +15,17 @@ Changes:
  .
    * source package automatically created by stdeb 0.8.5
 Checksums-Sha1:
- 7ad65006d9a8e1970a0f6aec83c80e1adc669517 906 cs-academic-fair_17.03.24-1.dsc
- 0a3c7d005ecac9b45da5fed11323e80a118d4ee5 4488 cs-academic-fair_17.03.24.orig.tar.gz
- 961df29392e07e9ae44588bc6244b699836a7714 816 cs-academic-fair_17.03.24-1.debian.tar.xz
- cce7b678fa9e9797b820849d812baf5dd52df7d0 5442 python-cs-academic-fair_17.03.24-1_all.deb
+ c05619f0f7811c75732f22feb3fa2200693e28fb 906 cs-academic-fair_17.03.24-1.dsc
+ c7e9aaf2c46a7f45c8351a9841f8e9b799852534 4465 cs-academic-fair_17.03.24.orig.tar.gz
+ 3a317e349a9566bce69309f18a7582404e2c48c5 820 cs-academic-fair_17.03.24-1.debian.tar.xz
+ 3a014ab9ba2ea008d65ed86a9a2fdc9c88b2dc9a 5424 python-cs-academic-fair_17.03.24-1_all.deb
 Checksums-Sha256:
- bddd7cce398b47a61b086d0b135154b7d87ea9cb04fcfa61e7a65003f4375f54 906 cs-academic-fair_17.03.24-1.dsc
- 0ec46f6d1651b8de032776748250d88a6317c31560fe4fa32d9bb81cd6f778de 4488 cs-academic-fair_17.03.24.orig.tar.gz
- cea25d0ac88f2ec37521c70cb896d97edc8ca2de62d8f71ab6da85bd916459de 816 cs-academic-fair_17.03.24-1.debian.tar.xz
- eb83a9db24da9d4967293c788f7aa4d3227378306b2068c8eb4c95306c6f46f4 5442 python-cs-academic-fair_17.03.24-1_all.deb
+ 3b06062395ffb80283a67249b96341ab85e835c9b24f9acdf3064b072d9d84ef 906 cs-academic-fair_17.03.24-1.dsc
+ c96042675a5c184cc1819100af6512d8cda4e41150b5b5e0c4432aca3e14552c 4465 cs-academic-fair_17.03.24.orig.tar.gz
+ 6e799a76226ec2f883a0fa4e6065e9f5d9ba00040a8d958976e99256d98664e1 820 cs-academic-fair_17.03.24-1.debian.tar.xz
+ eb89ec2cc0363ff45aa49817bad8a24cccf959207397a271117f362a15b1734d 5424 python-cs-academic-fair_17.03.24-1_all.deb
 Files:
- 299bcf044594ddf9b56d56794864e97f 906 python optional cs-academic-fair_17.03.24-1.dsc
- 269ec67a07031b7d8e4abd9368c6a360 4488 python optional cs-academic-fair_17.03.24.orig.tar.gz
- 75da3c6970cd400910de9213fbd0f212 816 python optional cs-academic-fair_17.03.24-1.debian.tar.xz
- f58b02302627f7d09fa38655ab82d377 5442 python optional python-cs-academic-fair_17.03.24-1_all.deb
+ 13848ced7f5ccc6e047fc022aab3845f 906 python optional cs-academic-fair_17.03.24-1.dsc
+ c3809b8779edc2e0a06913cf478bcc39 4465 python optional cs-academic-fair_17.03.24.orig.tar.gz
+ 9470468931cb3118888afe7ae4bcd706 820 python optional cs-academic-fair_17.03.24-1.debian.tar.xz
+ 4c180c0662bc74ac6f1d7e33f020656e 5424 python optional python-cs-academic-fair_17.03.24-1_all.deb
