@@ -1,4 +1,0 @@
-# please also check http://pypi.debian.net/cs-academic-fair/watch
-version=3
-opts=uversionmangle=s/(rc|a|b|c)/~$1/ \
-http://pypi.debian.net/cs-academic-fair/cs-academic-fair-(.+)\.(?:zip|tgz|tbz|txz|(?:tar\.(?:gz|bz2|xz)))
