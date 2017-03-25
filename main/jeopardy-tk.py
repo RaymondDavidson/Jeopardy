@@ -186,7 +186,7 @@ correct = 0
 ques = 0
 count = len(answer)
 title = "Protest & Resist (Power to the People!)"
-
+fontFace = 'arial 15 bold'
 
 #### Functions Section ######
 # function for pop up dialogs
@@ -249,126 +249,82 @@ def dummy(parent):
     spacer = ttk.Label(parent, text = " ")
     spacer.pack()
 
-#def frameDummy():
-#    spacer = ttk.Label(bottomframe, text = " ")
-#    spacer.pack()
+def widgets():
+    global fontFace, further, entry, label, score
 
-# creates empty root window: This is the first action-
-# the previous lines PREPARED for action
+    #frame inside window to control bottom element layout
+    bottomframe = Frame(root)
+    bottomframe.pack( side = BOTTOM )
 
+    midFrame = Frame(root)
+    midFrame.pack(side=BOTTOM)
+
+    # root widgets
+    dummy(root)
+
+    people = ttk.Label(root,wraplength=500, foreground="red", text="Dr. Angela Davis, Dr. Martin Luther King, Jr., Assata Shakur, bell hooks, Stokely Carmichael, Bobby Seale, Percy Sutton, Coretta Scott King, Huey P. Newton, Rep. John Lewis\n\n")
+    people.pack()
+
+    label = ttk.Label(root,text = question[ques],wraplength=300, font=fontFace)
+    label.pack()
+
+    # midFrame widgets
+    whois = StringVar(root, value='Who is...?')
+    entry = ttk.Entry(midFrame, width=40, textvariable=whois)
+    entry.pack()
+    dummy(midFrame)
+    # Submit button: to continue game, submit answer (calls out() function)
+    submit = tk.Button(midFrame,text = "OK",command = out, fg="white", bg="green")
+    submit.pack()
+    #below submit button, spacers
+    dummy(midFrame)
+    dummy(midFrame)
+    dummy(midFrame)
+    # bottomframe widgets
+    #horizontal spacers (calling dummy() function defined above)
+    dummy(bottomframe)
+    # horizontal spacer: calls dummy() function above
+    dummy(bottomframe)
+
+    # current score output
+    score = ttk.Label(bottomframe, text = "Score: 0/0", font=fontFace)
+    score.pack()
+    # make and pack progressbar: (green on windows, grey on linux, striped on mac)
+    further = ttk.Progressbar(bottomframe, mode="determinate",orient="horizontal", maximum=count, variable=ques, length=300, value=0)
+    further.pack()
+    # spacer for the invisible frame for the bottom
+    dummy(bottomframe)
+
+    # make label for progressbar
+    pb = ttk.Label(bottomframe, text="Progress")
+    pb.pack()
+
+    #spacers call the frameDummy() function
+    dummy(bottomframe)
+    dummy(bottomframe)
+
+    # quit button calls "close" function
+    leave = tk.Button(bottomframe,text = "Quit",command = close, fg="white", bg="red")
+    leave.pack()
+    #spacer
+    dummy(bottomframe)
+
+    # Key Binding
+    # Keyboard Input
+    root.bind('<Return>', out)
+    # Use <Escape> to quit using close method
+    root.bind('<Escape>', close)
+
+
+# creates root window
 root = tk.Tk()
-
 # sets geometry for root window
 root.geometry('{}x{}'.format(600, 700))
-
-
 #name at top of dialog
 windowtitle = root.wm_title(title)
-
+widgets()
 # Create 1st pop up message box
 pop("Welcome", "Protest & Resist (Power to the People!)")
+# second intro box
 pop("How to Play", "Enter your answers in the form of a question (like Jeopardy) -- Capitalization, spelling, and punctuation count. At the top of the game, you'll see possible answers. Press 'OK' to submit an answer; press 'Quit' to end the game.")
-
-#frame inside window to control bottom element layout
-bottomframe = Frame(root)
-bottomframe.pack( side = BOTTOM )
-
-# this 'starter answer' is only for the first question
-whois = StringVar(root, value='Who is...?')
-
-#frame for lower elements (to keep organized, prevent overlap)
-bottomframe = Frame(root)
-bottomframe.pack(side=BOTTOM)
-
-
-
-# Reminder for top of Window (text in red)
-dummy(root)
-people = ttk.Label(root,wraplength=500, foreground="red", text="Dr. Angela Davis, Dr. Martin Luther King, Jr., Assata Shakur, bell hooks, Stokely Carmichael, Bobby Seale, Percy Sutton, Coretta Scott King, Huey P. Newton, Rep. John Lewis\n\n")
-
-people.pack()
-
-#question as label
-font = 'arial 15 bold'
-label = ttk.Label(root,text = question[ques],wraplength=300, font=font)
-label.pack()
-
-
-#experimental middle frame to hold the OK button still
-# textbox for answer submissions
-
-midFrame = Frame(root)
-midFrame.pack(side=BOTTOM)
-
-entry = ttk.Entry(midFrame, width=40, textvariable=whois)
-entry.pack()
-
-dummy(midFrame)
-# original
-#entry = ttk.Entry(root, width=40, textvariable=whois)
-#entry.pack()
-
-
-# horizontal spacer: calls dummy() function above
-dummy(bottomframe)
-
-# current score output
-score = ttk.Label(bottomframe, text = "Score: 0/0", font=font)
-score.pack()
-
-
-
-
-# Submit button: to continue game, submit answer (calls out() function)
-submit = tk.Button(midFrame,text = "OK",command = out, fg="white", bg="green")
-submit.pack()
-#below submit button, spacers
-dummy(midFrame)
-dummy(midFrame)
-dummy(midFrame)
-
-# Working original
-#submit = tk.Button(root,text = "OK",command = out, fg="white", bg="green")
-#submit.pack()
-
-root.bind('<Return>', out)
-
-
-#horizontal spacers (calling dummy() function defined above)
-dummy(bottomframe)
-
-
-
-
-
-
-
-
-# make and pack progressbar: (green on windows, grey on linux, striped on mac)
-further = ttk.Progressbar(bottomframe, mode="determinate",orient="horizontal", maximum=count, variable=ques, length=300, value=0)
-further.pack()
-
-# spacer for the invisible frame for the bottom
-dummy(bottomframe)
-
-# make label for progressbar
-pb = ttk.Label(bottomframe, text="Progress")
-pb.pack()
-
-#spacers call the frameDummy() function
-dummy(bottomframe)
-dummy(bottomframe)
-
-# quit button calls "close" function
-leave = tk.Button(bottomframe,text = "Quit",command = close, fg="white", bg="red")
-leave.pack()
-
-# Use <Escape> to quit using close method
-root.bind('<Escape>', close)
-
-
-
-#spacer
-dummy(bottomframe)
-#loop to continue the program
 root.mainloop()
