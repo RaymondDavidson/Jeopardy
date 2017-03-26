@@ -17,7 +17,7 @@ setup(name='jeopardy_quiz',
       version='17.03.26',
       description='A python tkinter script for learning about prograssive civil rights activism',
       #long_description=long_description,
-      py_modules=['jeopardy-tk'],
+      #py_modules=[''],
 	  # Author Details
       author='Chelsea School Students',
       author_email='rgoldman@chelseaschool.edu',
@@ -55,5 +55,19 @@ setup(name='jeopardy_quiz',
       keywords='tkinter trivia learning game',
       packages=find_packages(),
       install_requires=[''],
+      package_dir={
+        '': 'jeopardy_quiz'
+        },
+      #entry_points={
+        #'console_scripts': [
+            #'jeopardy_quiz = jeopardy_quiz.__main__:main'
+            #]
+        #'gui_scripts': [
+        #    'jeopardy_quiz = jeopardy_quiz.__main__:main'
+        #    ]
+        #}
+
+
+
 
       )
