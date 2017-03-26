@@ -43,6 +43,8 @@ import tkMessageBox
 import sys
 import ttk as ttk
 import shelve
+import webbrowser
+import wnck
 
 #### Lists ####
 
@@ -55,127 +57,84 @@ players answer (in the form of a question)
 
 """
 
-question = ["(1) She is a civil-rights activist that argued for the abolition of prisons.\n\n",
-
-"(2) He is the civil-rights leader who described potentially radical action in support of civil rights progress as \"marvelous new militancy\".\n\n",
-
-"(3) She is a civil-rights activist that argued \"We have nothing to lose but our chains.\"\n\n",
-
-"(4) He believed \"a riot is the voice of the unheard.\"\n\n",
-
-"(5) He was the lawyer to Malcom X. \n\n",
-
-"(6) He believed that freedom is only earned every generation.\n\n",
-
-"(7) This activist said that, \"Hate is too great a burden to bear. It injures the hater more than it injures the hated.\"\n\n",
-
-"(8) Who believed that \"all Americans who believe in freedom should oppose bigotry and prejudice based on sexual orientation.\"\n\n",
-
-"(9) She said \"It is our duty to fight for our freedom. It is our duty to win. We must love each other and support each other. We have nothing to lose but our chains.\"\n\n",
-
-"(10) According to him, \"The revolution has always been in the hands of the young. The young inherit the revolution.\"\n\n",
-
-"(11) She said \"No one is going to give you the education you need to overthrow them.\"\n\n",
-
-"(12) She said  \"It is our duty to fight for our freedom. It is our duty to win.\"\n\n",
-
-"(13) He said \"You don't fight racism with racism, the best way to fight racism is with solidarity.\"\n\n",
-
-"(14) He said \"You can jail a revolutionary, but you can not jail the revolution.\"\n\n",
-
-"(15) She said \"I don't believe you can stand for freedom  for one group of people and deny it to others.\"\n\n",
-
-"(16) She makes clear that \"the political core of any movement for freedom in the society has to have the political imperative to protect free speech.\"\n\n",
-
-"(17) He wrote \"the secret of life is to have no fear; it's the only way to function.\"\n\n",
-
-"(18) She said \"I will not have my life narrowed down. I will not bow down to somebody else's whim or to someone else's ignorance.\"\n\n",
-
-"(19) He said \"If you see something that is not right, not fair, not just, you have a moral obligation to do something about it.\"\n\n",
-
-"(20) She said, \"being oppressed means the absence of choices.\"\n\n",
-
-"(21) She said, \"I want there to be a place in the world where people can engage in one another's differences in a way that is redemptive, full of hope and possibility. Not this \'In order to love you, I must make you something else\'. That's what domination is all about, that in order to be close to you, I must possess you, remake and recast you.\"\n\n",
-
-"(22) He said, \"The civil rights movement was based on faith. Many of us who were participants in this movement saw our involvement as an extension of our faith. We saw ourselves doing the work of the Almighty. Segregation and racial discrimination were not in keeping with our faith, so we had to do something.\"\n\n",
-
-"(23) He said, 'Darkness cannot drive out darkness; only light can do that. Hate cannot drive out hate; only love can do that.\"\n\n",
-
-"(24) She said that, \"hate is too great a burden to bear. It injures the hater more than it injures the hated.\"\n\n",
-
-"(25) She believed that \"all Americans who believe in freedom should oppose bigotry and prejudice based on sexual orientation.\"\n\n",
-
-"(26) She said \"this is the 21st century; we need to redefine revolution.\"\n\n",
-
-"(27) He said \"Don't give up, Don't give out, Don't give in.\"\n\n",
-
-"(28) She said \"Feminism is for everybody.\"\n\n",
-
-"(29) She said \"radical\" simply means \"grasping by the roots.\"\n\n"]
+question = [
+"She is a civil-rights activist that argued for the abolition of prisons.\n\n",
+"He is the civil-rights leader who described potentially radical action in support of civil rights progress as \"marvelous new militancy\".\n\n",
+"She is a civil-rights activist that argued \"We have nothing to lose but our chains.\"\n\n",
+"He believed \"a riot is the voice of the unheard.\"\n\n",
+"He was the lawyer to Malcom X. \n\n",
+"He believed that freedom is only earned every generation.\n\n",
+"This activist said that, \"Hate is too great a burden to bear. It injures the hater more than it injures the hated.\"\n\n",
+"Who believed that \"all Americans who believe in freedom should oppose bigotry and prejudice based on sexual orientation.\"\n\n",
+"She said \"It is our duty to fight for our freedom. It is our duty to win. We must love each other and support each other. We have nothing to lose but our chains.\"\n\n",
+"According to him, \"The revolution has always been in the hands of the young. The young inherit the revolution.\"\n\n",
+"She said \"No one is going to give you the education you need to overthrow them.\"\n\n",
+"She said  \"It is our duty to fight for our freedom. It is our duty to win.\"\n\n",
+"He said \"You don't fight racism with racism, the best way to fight racism is with solidarity.\"\n\n",
+"He said \"You can jail a revolutionary, but you can not jail the revolution.\"\n\n",
+"She said \"I don't believe you can stand for freedom  for one group of people and deny it to others.\"\n\n",
+"She makes clear that \"the political core of any movement for freedom in the society has to have the political imperative to protect free speech.\"\n\n",
+"He wrote \"the secret of life is to have no fear; it's the only way to function.\"\n\n",
+"She said \"I will not have my life narrowed down. I will not bow down to somebody else's whim or to someone else's ignorance.\"\n\n",
+"He said \"If you see something that is not right, not fair, not just, you have a moral obligation to do something about it.\"\n\n",
+"She said, \"being oppressed means the absence of choices.\"\n\n",
+"She said, \"I want there to be a place in the world where people can engage in one another's differences in a way that is redemptive, full of hope and possibility. Not this \'In order to love you, I must make you something else\'. That's what domination is all about, that in order to be close to you, I must possess you, remake and recast you.\"\n\n",
+"He said, \"The civil rights movement was based on faith. Many of us who were participants in this movement saw our involvement as an extension of our faith. We saw ourselves doing the work of the Almighty. Segregation and racial discrimination were not in keeping with our faith, so we had to do something.\"\n\n",
+"He said, 'Darkness cannot drive out darkness; only light can do that. Hate cannot drive out hate; only love can do that.\"\n\n",
+"She said that, \"hate is too great a burden to bear. It injures the hater more than it injures the hated.\"\n\n",
+"She believed that \"all Americans who believe in freedom should oppose bigotry and prejudice based on sexual orientation.\"\n\n",
+"She said \"this is the 21st century; we need to redefine revolution.\"\n\n",
+"He said \"Don't give up, Don't give out, Don't give in.\"\n\n",
+"She said \"Feminism is for everybody.\"\n\n",
+"She said \"radical\" simply means \"grasping by the roots.\"\n\n"
+]
 
 
 # This is a Python list.
 # Answers that match the above questions (in same order).
 
 
-answer = ["Who is Dr. Angela Davis?",
-
+answer = [
+"Who is Dr. Angela Davis?",
 "Who is Dr. Martin Luther King, Jr.?",
-
 "Who is Assata Shakur?",
-
 "Who is Dr. Martin Luther King, Jr.?",
-
 "Who is Percy Sutton?",
-
 "Who is Coretta Scott King?",
-
 "Who is Coretta Scott King?",
-
 "Who is Coretta Scott King?",
-
 "Who is Assata Shakur?",
-
 "Who is Huey P. Newton?",
-
 "Who is Assata Shakur?",
-
 "Who is Assata Shakur?",
-
 "Who is Bobby Seale?",
-
 "Who is Bobby Seale?",
-
 "Who is Coretta Scott King?",
-
 "Who is bell hooks?",
-
 "Who is Stokely Carmichael?",
-
 "Who is bell hooks?",
-
 "Who is Rep. John Lewis?",
-
 "Who is bell hooks?",
-
 "Who is bell hooks?",
-
 "Who is Rep. John Lewis?",
-
 "Who is Dr. Martin Luther King, Jr.?",
-
 "Who is Coretta Scott King?",
-
 "Who is Coretta Scott King?",
-
 "Who is Assata Shakur?",
-
 "Who is Rep. John Lewis?",
-
 "Who is bell hooks?",
-
 "Who is Dr. Angela Davis?"
 ]
+
+
+
+
+
+
+
+
+
+
 
 
 #### Variables ####
@@ -191,6 +150,17 @@ fontFace = 'arial 15 bold'
 #### Functions Section ######
 # function for pop up dialogs
 
+def askGoogle(string):
+    global web
+    ask = string
+
+    ask = ask.replace(" ", "+")
+
+    www = "https://www.google.com/#q=" + ask + "&*"
+    web.open(www, new=0, autoraise=False)
+
+
+
 def pop(title, string):
     msg = tkMessageBox
     msg = msg.showinfo(title, string)
@@ -199,8 +169,7 @@ def pop(title, string):
 # function for continuing
 def out(*event):
 
-    global correct, ques, count, entry, further
-
+    global correct, ques, count, entry, further, root
 
     further["value"] = ques
 
@@ -221,12 +190,15 @@ def out(*event):
             ques = ques + 1
             entry.delete(0, END)
             label.config(text = question[ques])
-
             score.config(text=("Score: " + str(correct) + "/" + str(ques)))
 
         else:
             ques = ques + 1
             entry.delete(0, END)
+
+            askGoogle(answer[ques])
+            root.after(3000, lambda:root.focus_force())
+            entry.focus()
             if ques < count:
                 label.config(text = question[ques])
                 score.config(text=("Score: " + str(correct) + "/" + str(ques)))
@@ -238,8 +210,11 @@ def close(*event):
     try:
         shelf = shelve.open('data/scores.dat') # here you will save the score variable
         shelf['score'] = str(correct)      # thats all, now it is saved on disk.
+        for points in shelf['score']:
+            print(points)
         shelf.close() # closes the db file with scores
         pop("Thank you", "Thank you for learning with us!")
+
     except:
         print "Score could not be recorded."
 
@@ -271,6 +246,7 @@ def widgets():
     # midFrame widgets
     whois = StringVar(root, value='Who is...?')
     entry = ttk.Entry(midFrame, width=40, textvariable=whois)
+    entry.focus()
     entry.pack()
     dummy(midFrame)
     # Submit button: to continue game, submit answer (calls out() function)
@@ -299,7 +275,7 @@ def widgets():
     pb = ttk.Label(bottomframe, text="Progress")
     pb.pack()
 
-    #spacers call the frameDummy() function
+    #spacers call the bottomframe() function
     dummy(bottomframe)
     dummy(bottomframe)
 
@@ -317,14 +293,16 @@ def widgets():
 
 
 # creates root window
+web = webbrowser.get('firefox')
 root = tk.Tk()
 # sets geometry for root window
 root.geometry('{}x{}'.format(600, 700))
 #name at top of dialog
 windowtitle = root.wm_title(title)
+
 widgets()
-# Create 1st pop up message box
-pop("Welcome", "Protest & Resist (Power to the People!)")
-# second intro box
-pop("How to Play", "Enter your answers in the form of a question (like Jeopardy) -- Capitalization, spelling, and punctuation count. At the top of the game, you'll see possible answers. Press 'OK' to submit an answer; press 'Quit' to end the game.")
+# Create splash dialog (message box)
+splash = pop("Welcome", "Protest & Resist (Power to the People!)\n\nEnter your answers in the form of a question (like Jeopardy) -- Capitalization, spelling, and punctuation count. At the top of the game, you'll see possible answers. Press 'OK' to submit an answer; press 'Quit' to end the game.\n")
+root.attributes('-topmost', True)
+
 root.mainloop()
