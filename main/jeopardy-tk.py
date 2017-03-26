@@ -45,6 +45,7 @@ import ttk as ttk
 import shelve
 import webbrowser
 import time
+import os
 import subprocess
 
 
@@ -150,19 +151,31 @@ ques = 0
 count = len(answer)
 title = "Protest & Resist (Power to the People!)"
 fontFace = 'arial 15 bold'
-
+browserName = 'firefox'
 #### Functions Section ######
 # function for pop up dialogs
 
-def askGoogle(string):
-    global web
+def askGoogle(string, browserName):
     ask = string
-
     ask = ask.replace(" ", "+")
-
     www = "https://www.google.com/#q=" + ask + "&*"
-    web.open(www, new=0, autoraise=False)
-
+    platform = os.name
+    #print platform
+    if platform == "posix":
+        try:
+            web = webbrowser.get(browserName)
+            ask = string
+            ask = ask.replace(" ", "+")
+            www = "https://www.google.com/#q=" + ask + "&*"
+            web.open(www, new=0, autoraise=False)
+            web.open(www, new=0, autoraise=False)
+        except:
+            print "We're sorry; we couldn't show the answer with a browser."
+    else:
+        try:
+            webbrowser.open(www, new=0, autoraise=False)
+        except:
+            print "Couldn't raise a browser."
 
 
 def pop(title, string):
@@ -170,10 +183,26 @@ def pop(title, string):
     msg = msg.showinfo(title, string)
 
 
+def killBrowser(browserName):
+    platform = os.name
+    #print platform
+    #print browserName
+    if platform == 'nt':
+        #winProcess = browserName + ".exe"
+        #print winProcess
+        try:
+            os.system("taskkill /im firefox.exe")
+        except:
+            print "Couldn't close browser. We're sorry."
+    else:
+        try:
+            print subprocess.check_output('kill -15 $(ps ax | grep ' + browserName + ' | grep -v grep | awk \'{print $1}\')',shell=True)
+        except:
+            print "Subprocess could not kill firefox."
 # function for continuing
 def out(*event):
 
-    global correct, ques, count, entry, further, root
+    global correct, ques, count, entry, further, root, browserName
     entry.focus()
     further["value"] = ques
 
@@ -197,7 +226,7 @@ def out(*event):
             score.config(text=("Score: " + str(correct) + "/" + str(ques)))
 
         else:
-            askGoogle(answer[ques])
+            askGoogle(answer[ques], browserName)
             root.after(0500, lambda:root.focus_force())
             entry.focus()
             ques = ques + 1
@@ -210,15 +239,20 @@ def out(*event):
                 close()
 
 def close(*event):
-    global root
+    global root, browserName
     #try:
         #shelf = shelve.open('data/scores.dat') # here you will save the score variable
         #shelf['score'] = str(correct)      # thats all, now it is saved on disk.
         #for points in shelf['score']:
         #    print(points)
         #shelf.close() # closes the db file with scores
+    # Test kill broser if its firefox running on posix arch
+    #print subprocess.check_output('kill $(ps ax | grep firefox | grep -v grep | awk \'{print $1}\')',shell=True)
 
-    print subprocess.check_output('kill $(ps ax | grep firefox | grep -v grep | awk \'{print $1}\')',shell=True)
+
+    # Kills the Brower: essential - otherwise the close dialog is invisible
+    killBrowser(browserName)
+
     root.after(40000, lambda: root.destroy())
     pop("Thank you", "Thank you for learning with us!")
 
@@ -314,7 +348,9 @@ windowtitle = root.wm_title(title)
 widgets()
 # Create splash dialog (message box)
 splash = pop("Welcome", "Protest & Resist (Power to the People!)\n\nEnter your answers in the form of a question (like Jeopardy) -- Capitalization, spelling, and punctuation count. At the top of the game, you'll see possible answers. Press 'OK' to submit an answer; press 'Quit' to end the game.\n")
-web = webbrowser.get('firefox')
+
+
+
 root.attributes('-topmost', True)
 
 root.mainloop()
