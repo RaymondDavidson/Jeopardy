@@ -44,7 +44,11 @@ import sys
 import ttk as ttk
 import shelve
 import webbrowser
-import wnck
+import time
+import subprocess
+
+
+
 
 #### Lists ####
 
@@ -63,7 +67,7 @@ question = [
 "She is a civil-rights activist that argued \"We have nothing to lose but our chains.\"\n\n",
 "He believed \"a riot is the voice of the unheard.\"\n\n",
 "He was the lawyer to Malcom X. \n\n",
-"He believed that freedom is only earned every generation.\n\n",
+"She believed that freedom is only earned every generation.\n\n",
 "This activist said that, \"Hate is too great a burden to bear. It injures the hater more than it injures the hated.\"\n\n",
 "Who believed that \"all Americans who believe in freedom should oppose bigotry and prejudice based on sexual orientation.\"\n\n",
 "She said \"It is our duty to fight for our freedom. It is our duty to win. We must love each other and support each other. We have nothing to lose but our chains.\"\n\n",
@@ -170,7 +174,7 @@ def pop(title, string):
 def out(*event):
 
     global correct, ques, count, entry, further, root
-
+    entry.focus()
     further["value"] = ques
 
 
@@ -193,11 +197,11 @@ def out(*event):
             score.config(text=("Score: " + str(correct) + "/" + str(ques)))
 
         else:
+            askGoogle(answer[ques])
+            root.after(0500, lambda:root.focus_force())
+            entry.focus()
             ques = ques + 1
             entry.delete(0, END)
-
-            askGoogle(answer[ques])
-            root.after(3000, lambda:root.focus_force())
             entry.focus()
             if ques < count:
                 label.config(text = question[ques])
@@ -206,19 +210,26 @@ def out(*event):
                 close()
 
 def close(*event):
+    global root
+    #try:
+        #shelf = shelve.open('data/scores.dat') # here you will save the score variable
+        #shelf['score'] = str(correct)      # thats all, now it is saved on disk.
+        #for points in shelf['score']:
+        #    print(points)
+        #shelf.close() # closes the db file with scores
 
-    try:
-        shelf = shelve.open('data/scores.dat') # here you will save the score variable
-        shelf['score'] = str(correct)      # thats all, now it is saved on disk.
-        for points in shelf['score']:
-            print(points)
-        shelf.close() # closes the db file with scores
-        pop("Thank you", "Thank you for learning with us!")
+    print subprocess.check_output('kill $(ps ax | grep firefox | grep -v grep | awk \'{print $1}\')',shell=True)
+    root.after(40000, lambda: root.destroy())
+    pop("Thank you", "Thank you for learning with us!")
 
-    except:
-        print "Score could not be recorded."
 
-    sys.exit()
+
+
+    #root.focus_force()
+    root.destroy()
+    #except:
+        #print "Score could not be recorded."
+    #sys.exit()
 
 def dummy(parent):
     spacer = ttk.Label(parent, text = " ")
@@ -265,11 +276,11 @@ def widgets():
     # current score output
     score = ttk.Label(bottomframe, text = "Score: 0/0", font=fontFace)
     score.pack()
+    dummy(bottomframe)
     # make and pack progressbar: (green on windows, grey on linux, striped on mac)
     further = ttk.Progressbar(bottomframe, mode="determinate",orient="horizontal", maximum=count, variable=ques, length=300, value=0)
     further.pack()
-    # spacer for the invisible frame for the bottom
-    dummy(bottomframe)
+
 
     # make label for progressbar
     pb = ttk.Label(bottomframe, text="Progress")
@@ -293,7 +304,7 @@ def widgets():
 
 
 # creates root window
-web = webbrowser.get('firefox')
+
 root = tk.Tk()
 # sets geometry for root window
 root.geometry('{}x{}'.format(600, 700))
@@ -303,6 +314,7 @@ windowtitle = root.wm_title(title)
 widgets()
 # Create splash dialog (message box)
 splash = pop("Welcome", "Protest & Resist (Power to the People!)\n\nEnter your answers in the form of a question (like Jeopardy) -- Capitalization, spelling, and punctuation count. At the top of the game, you'll see possible answers. Press 'OK' to submit an answer; press 'Quit' to end the game.\n")
+web = webbrowser.get('firefox')
 root.attributes('-topmost', True)
 
 root.mainloop()
