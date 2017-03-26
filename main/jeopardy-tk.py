@@ -25,15 +25,11 @@
 # the pound or hash symbol means a 1 line comment follows; comments are ignored by the interpreter
 
 """
-Three consecutive quotes signifies the
-start of a multi-line comment
-
+Jeopardy style quiz about civil rights leaders often not included in curriculum.
 
 Summary:
 
-This is a program written in Python. It...
-
-
+    This is a program written in Python. It...
 """
 
 #### Dependencies ####
@@ -50,11 +46,11 @@ import subprocess
 
 
 
-
 #### Lists ####
 
 # people who worked on this project (in list format)
-credits = ["Ocho262", "FlamboyantPapayas", "ghoulmann", "Sidhant", "IHopRocks", "Raymond R. Davidson", "RC", "EB", "MS", "Shaun"]
+# TODO: move to documentation
+# credits = ["Ocho262", "FlamboyantPapayas", "ghoulmann", "Sidhant", "IHopRocks", "Raymond R. Davidson", "RC", "EB", "MS", "Shaun"]
 
 """
 These are the prompts in the game that
@@ -134,14 +130,6 @@ answer = [
 
 
 
-
-
-
-
-
-
-
-
 #### Variables ####
 
 
@@ -152,10 +140,35 @@ count = len(answer)
 title = "Protest & Resist (Power to the People!)"
 fontFace = 'arial 15 bold'
 browserName = 'firefox'
+
+
+
 #### Functions Section ######
 # function for pop up dialogs
 
 def askGoogle(string, browserName):
+    """In case of wrong answer, show correct person from google search.
+
+    Turns correct answer in to a google ask, and then opens a browser tab to the google search results in a new tab. Process is dependent on OS.name.
+
+    Currently browser is set to firefox and confirmed to work, as long as firefox is installed.
+
+    Args
+    ----
+
+    string (str):
+        The question to look up (from the list)
+    browserName (str):
+        browser defined in the variables (line 142)
+
+    Returns
+    -------
+
+        bool: True for success. False otherwise.
+
+    .. TODO::
+        var platform is duplicated. Find a solution without repetition.
+    """
     ask = string
     ask = ask.replace(" ", "+")
     www = "https://www.google.com/#q=" + ask + "&*"
