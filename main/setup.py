@@ -55,7 +55,7 @@ setup(name='jeopardy_quiz',
       keywords='tkinter trivia learning game',
       packages=find_packages(),
       install_requires=['webbrowser'],
-      package_dir={
+      #package_dir={
         #'jeopardy_quiz': 'jeopardy_quiz'
         #},
       entry_points={
@@ -63,7 +63,7 @@ setup(name='jeopardy_quiz',
         #    'jeopardy_quiz = jeopardy_quiz.__main__:main'
         #    ],
         'gui_scripts': [
-            'jeopardy_quiz = jeopardy_quiz.jeopardy_quiz:main'
+            'jeopardy_quiz = jeopardy_quiz:main',
             ]
         },
 
