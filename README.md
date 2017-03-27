@@ -29,12 +29,17 @@ learning game With tui dialog wrapper from TurnKey GNU/Linux
 
 # Build
 
-## Windows
-*   nuitka --standalone ./main/jeopardy-tk.py (useless so far)
+## Build sdist
 
-## Otherwise
+`python setup.py sdist`
 
-Requires stdeb
+use pip install to install.
+
+## Build Debian
+
+*On a debian-based machine*
+
+### Requires stdeb
 
 ```
 cd main/
@@ -43,6 +48,14 @@ cd deb_dist/<folder with project and version> #determined in setup.py
 dpkg-buildpackage -rfakeroot -uc -us
 ```
 
+### From Source packages
+
+```
+py2dsc <name-of-package-version.tar.gz>
+cd deb_dist/<name-of-package-version>
+dpkg-buildpackage -rfakerooot -uc -us
+cd ..
+sudo dpkg -i python-<name-of-package-version_all.deb>
 ----
 
 Shoulda been a javascript project.
