@@ -4,6 +4,27 @@ from setuptools import setup, find_packages
 # To use a consistent encoding
 from codecs import open
 from os import path
+import os
+
+def is_package(path):
+    return (
+        os.path.isdir(path) and
+        os.path.isfile(os.path.join(path, '__init__.py'))
+        )
+
+def find_packages(path, base="" ):
+    """ Find all packages in path """
+    packages = {}
+    for item in os.listdir(path):
+        dir = os.path.join(path, item)
+        if is_package( dir ):
+            if base:
+                module_name = "%(base)s.%(item)s" % vars()
+            else:
+                module_name = item
+            packages[module_name] = dir
+            packages.update(find_packages(dir, module_name))
+    return packages
 
 here = path.abspath(path.dirname(__file__))
 
@@ -17,12 +38,12 @@ setup(name='jeopardy_quiz',
       version='17.3.27',
       description='A python tkinter script for learning about prograssive civil rights activism',
       #long_description=long_description,
-      #py_modules=[''],
+      py_modules=['jeopardy_quiz'],
 	  # Author Details
       author='Chelsea School Students',
       author_email='rgoldman@chelseaschool.edu',
       # homepage
-      url='',
+      url='https://blog.9while9.com',
       # license
       license='GPLv2',
       classifiers=[
@@ -53,17 +74,17 @@ setup(name='jeopardy_quiz',
         #'Programming Language :: Python :: 3.5',
     ],
       keywords='tkinter trivia learning game',
-      packages=find_packages(),
+      packages=find_packages('.'),
       #install_requires=['webbrowser'],
-      #package_dir={
-        #'jeopardy_quiz': 'jeopardy_quiz'
-        #},
+      package_dir={
+        'jeopardy_quiz': 'jeopardy_quiz'
+        },
       entry_points={
         #'console_scripts': [
         #    'jeopardy_quiz = jeopardy_quiz.__main__:main'
         #    ],
         'gui_scripts': [
-            'jeopardy_quiz = jeopardy_quiz:main',
+            'jeopardy_quiz = jeopardy_quiz.jeopardy_quiz:main',
             ]
         },
 
