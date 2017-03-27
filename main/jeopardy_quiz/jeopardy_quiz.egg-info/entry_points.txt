@@ -1,0 +1,6 @@
+[console_scripts]
+jeopardy_quiz = jeopardy_quiz.__main__:main
+
+[gui_scripts]
+jeopardy_quiz = jeopardy_quiz.__main__:main
+
