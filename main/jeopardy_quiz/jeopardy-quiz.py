@@ -140,7 +140,8 @@ def main(args=None):
     #### Functions Section ######
 
 
-    def askGoogle(string, browserName):
+    #def askGoogle(string, browserName):
+    def askGoogle(string):
         """In case of wrong answer, show correct person from google search.
 
         Turns correct answer in to a google ask, and then opens a browser tab to the google search results in a new tab. Process is dependent on OS.name.
@@ -169,19 +170,19 @@ def main(args=None):
         platform = os.name
         if platform == "posix":
             try:
-                web = webbrowser.get(browserName)
+                #web = webbrowser.get(browserName)
                 ask = string
                 ask = ask.replace(" ", "+")
                 www = "https://www.google.com/#q=" + ask + "&*"
-                web.open(www, new=0, autoraise=False)
-                web.open(www, new=0, autoraise=False)
+                webbrowser.open(www, new=0, autoraise=False)
+                #web.open(www, new=0, autoraise=False)
             except:
                 print "We're sorry; we couldn't show the answer with a browser."
-            else:
-                try:
-                    webbrowser.open(www, new=0, autoraise=False)
-                except:
-                    print "Couldn't raise a browser."
+        else:
+            try:
+                webbrowser.open(www, new=0, autoraise=False)
+            except:
+                print "Couldn't raise a browser."
 
 
     def pop(title, string):
@@ -189,18 +190,20 @@ def main(args=None):
         msg = msg.showinfo(title, string)
 
 
-    def killBrowser(browserName):
-        platform = os.name
-        if platform == 'nt':
-            try:
-                os.system("taskkill /im firefox.exe")
-            except:
-                print "Couldn't close browser. We're sorry."
-        else:
-            try:
-                print subprocess.check_output('kill -15 $(ps ax | grep ' + browserName + ' | grep -v grep | awk \'{print $1}\')',shell=True)
-            except:
-                print "Subprocess could not kill firefox."
+    #def killBrowser(browserName):
+    #    platform = os.name
+    #    if platform == 'nt':
+    #        try:
+    #            os.system("taskkill /im firefox.exe")
+    #        except:
+    #            print "Couldn't close browser. We're sorry."
+    #    else:
+    #        try:
+    #            print subprocess.check_output('kill -15 $(ps ax | grep ' + browserName + ' | grep -v grep | awk \'{print $1}\')',shell=True)
+    #        except:
+    #            print "Subprocess could not kill firefox."
+
+
     # function for continuing
     def out(*event):
 
@@ -220,7 +223,8 @@ def main(args=None):
                 score.config(text=("Score: " + str(correct) + "/" + str(ques)))
 
             else:
-                askGoogle(answer[ques], browserName)
+                askGoogle(answer[ques])
+                #askGoogle(answer[ques], browserName)
                 root.after(0500, lambda:root.focus_force())
                 entry.focus()
                 ques = ques + 1
@@ -310,7 +314,7 @@ def main(args=None):
 
 
         # Kills the Brower: essential - otherwise the close dialog is invisible
-        killBrowser(browserName)
+        #killBrowser(browserName)
 
         root.after(40000, lambda: root.destroy())
         pop("Thank you", "Thank you for learning with us!")
@@ -330,7 +334,7 @@ def main(args=None):
     count = len(answer)
     title = "Protest & Resist (Power to the People!)"
     fontFace = 'arial 15 bold'
-    browserName = 'firefox'
+    #browserName = 'firefox'
     root = tk.Tk()
     # sets geometry for root window
     root.geometry('{}x{}'.format(600, 700))
