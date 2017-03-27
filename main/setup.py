@@ -54,7 +54,7 @@ setup(name='jeopardy_quiz',
     ],
       keywords='tkinter trivia learning game',
       packages=find_packages(),
-      install_requires=['webbrowser'],
+      #install_requires=['webbrowser'],
       #package_dir={
         #'jeopardy_quiz': 'jeopardy_quiz'
         #},
