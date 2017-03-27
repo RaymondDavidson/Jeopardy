@@ -14,7 +14,7 @@ here = path.abspath(path.dirname(__file__))
 #    long_description = f.read()
 
 setup(name='jeopardy_quiz',
-      version='17.03.26',
+      version='17.3.27',
       description='A python tkinter script for learning about prograssive civil rights activism',
       #long_description=long_description,
       #py_modules=[''],
@@ -45,27 +45,27 @@ setup(name='jeopardy_quiz',
 
         # Specify the Python versions you support here. In particular, ensure
         # that you indicate whether you support Python 2, Python 3 or both.
-        'Programming Language :: Python :: 2',
+        #'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
+        #'Programming Language :: Python :: 3',
+        #'Programming Language :: Python :: 3.3',
+        #'Programming Language :: Python :: 3.4',
+        #'Programming Language :: Python :: 3.5',
     ],
       keywords='tkinter trivia learning game',
       packages=find_packages(),
-      install_requires=[''],
-      #package_dir={
+      install_requires=['webbrowser'],
+      package_dir={
         #'jeopardy_quiz': 'jeopardy_quiz'
         #},
-      #entry_points={
+      entry_points={
         #'console_scripts': [
         #    'jeopardy_quiz = jeopardy_quiz.__main__:main'
         #    ],
-        #'gui_scripts': [
-        #    'jeopardy_quiz = jeopardy_quiz:main'
-        #    ]
-        #},
+        'gui_scripts': [
+            'jeopardy_quiz = jeopardy_quiz.jeopardy_quiz:main'
+            ]
+        },
 
 
 
