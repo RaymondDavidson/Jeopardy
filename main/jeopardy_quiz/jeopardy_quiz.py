@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  jeopardy-tk.py
+#  jeopardy_quiz.py
 #
 #  Copyright 2017 Chelsea School Students and Rik Goldman <rgoldman@chelseaschool.edu>
 #
@@ -25,11 +25,11 @@
 # the pound or hash symbol means a 1 line comment follows; comments are ignored by the interpreter
 
 """
-Jeopardy style quiz about civil rights leaders often not included in curriculum.
+    jeopardy_quiz
+    ~~~~~~~~~~~~~
+    Jeopardy style quiz about civil rights leaders often not included in curriculum.
 
-Summary:
-
-    This is a program written in Python. It...
+    :copyright: (c) 2017 by Rik Goldman for Chelsea School
 """
 
 #### Dependencies ####
@@ -149,21 +149,20 @@ def main(args=None):
         Currently browser is set to firefox and confirmed to work, as long as firefox is installed.
 
         Args
-        ----
+        ~~~~
 
-        string (str):
-            The question to look up (from the list)
-        browserName (str):
-            browser defined in the variables (line 142)
+        :param string (str): The question to look up (from the list)
+
+        :param browserName (str): browser defined in the variables (line 142)
 
         Returns
         -------
 
-            bool: True for success. False otherwise.
+        :return bool: True for success. False otherwise.
 
-        .. TODO::
-            var platform is duplicated. Find a solution without repetition.
+        .. TODO:: var platform is duplicated. Find a solution without repetition.
         """
+
         ask = string
         ask = ask.replace(" ", "+")
         www = "https://www.google.com/#q=" + ask + "&*"
