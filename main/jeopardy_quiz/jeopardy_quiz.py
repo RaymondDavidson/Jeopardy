@@ -45,7 +45,11 @@ import os
 import subprocess
 
 def main(args=None):
-    """The main routine."""
+    """
+    :func: main()
+
+     The main routine.
+     """
     if args is None:
         args = sys.argv[1:]
 
@@ -189,20 +193,6 @@ def main(args=None):
         msg = msg.showinfo(title, string)
 
 
-    #def killBrowser(browserName):
-    #    platform = os.name
-    #    if platform == 'nt':
-    #        try:
-    #            os.system("taskkill /im firefox.exe")
-    #        except:
-    #            print "Couldn't close browser. We're sorry."
-    #    else:
-    #        try:
-    #            print subprocess.check_output('kill -15 $(ps ax | grep ' + browserName + ' | grep -v grep | awk \'{print $1}\')',shell=True)
-    #        except:
-    #            print "Subprocess could not kill firefox."
-
-
     # function for continuing
     def out(*event):
 
@@ -301,23 +291,9 @@ def main(args=None):
 
 
     def close(*event):
-        #global root, browserName
-        #try:
-        #shelf = shelve.open('data/scores.dat') # here you will save the score variable
-        #shelf['score'] = str(correct)      # thats all, now it is saved on disk.
-        #for points in shelf['score']:
-        #    print(points)
-        #shelf.close() # closes the db file with scores
-        # Test kill broser if its firefox running on posix arch
-        #print subprocess.check_output('kill $(ps ax | grep firefox | grep -v grep | awk \'{print $1}\')',shell=True)
-
-
-        # Kills the Brower: essential - otherwise the close dialog is invisible
-        #killBrowser(browserName)
-
         root.after(40000, lambda: root.destroy())
         pop("Thank you", "Thank you for learning with us!")
-        #root.focus_force()
+        webbrowser.open('https://github.com/ghoulmann/Jeopardy', new=0, autoraise=False)
         root.destroy()
 
     def dummy(parent):
