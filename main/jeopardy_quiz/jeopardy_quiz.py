@@ -24,13 +24,7 @@
 
 # the pound or hash symbol means a 1 line comment follows; comments are ignored by the interpreter
 
-"""
-    jeopardy_quiz
-    ~~~~~~~~~~~~~
-    Jeopardy style quiz about civil rights leaders often not included in curriculum.
-
-    :copyright: (c) 2017 by Rik Goldman for Chelsea School
-"""
+"""Jeopardy-style quiz on civil rights quotes not in curriculum."""
 
 #### Dependencies ####
 from Tkinter import *
@@ -45,11 +39,12 @@ import os
 import subprocess
 
 def main(args=None):
-    """
-    :func: main()
+    """Main routine.
 
-     The main routine.
-     """
+    Keyword arguments:
+
+    args -- takes none  
+ """
     if args is None:
         args = sys.argv[1:]
 
