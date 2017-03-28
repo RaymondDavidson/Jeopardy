@@ -49,6 +49,8 @@ import subprocess
 #### Main Function ####
 def main(args=None):
     """
+    Main Function
+
     Main function wraps all the code. It's the main routine; the functions within main() are subroutines.
 
     parameters: none
