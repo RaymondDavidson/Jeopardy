@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  jeopardy-tk.py
+#  jeopardy_quiz.py
 #
 #  Copyright 2017 Chelsea School Students and Rik Goldman <rgoldman@chelseaschool.edu>
 #
@@ -29,7 +29,9 @@ Jeopardy style quiz about civil rights leaders often not included in curriculum.
 
 Summary:
 
-    This is a program written in Python. It...
+    This is a program written in Python. It seeks to teach students about historically significant perspectives on civil rights that are not part of the curriculum.
+
+    It asks questions that answered jeopardy-style. Each question that is answered incorrectly bring a browser tab
 """
 
 #### Dependencies ####
@@ -44,28 +46,26 @@ import time
 import os
 import subprocess
 
+#### Main Function ####
 def main(args=None):
     """
-    :func: main()
+    Main function wraps all the code. It's the main routine; the functions within main() are subroutines.
 
-     The main routine.
-     """
+    parameters: none
+    """
+
+    #### Python Conventions: Run the program - do not take any modifiers ####
     if args is None:
         args = sys.argv[1:]
 
 
     #### Lists ####
 
-    # people who worked on this project (in list format)
-    # TODO: move to documentation
-    # credits = ["Ocho262", "FlamboyantPapayas", "ghoulmann", "Sidhant", "IHopRocks", "Raymond R. Davidson", "RC", "EB", "MS", "Shaun"]
-
     """
     These are the prompts in the game that
     players answer (in the form of a question)
 
     """
-
     question = [
         "She is a civil-rights activist that argued for the abolition of prisons.\n\n",
         "He is the civil-rights leader who described potentially radical action in support of civil rights progress as \"marvelous new militancy\".\n\n",
@@ -100,7 +100,7 @@ def main(args=None):
 
 
     # This is a Python list.
-    # Answers that match the above questions (in same order).
+    # Answers match the above questions (in same order) come afterwards.
     answer = [
         "Who is Dr. Angela Davis?",
         "Who is Dr. Martin Luther King, Jr.?",
@@ -136,37 +136,31 @@ def main(args=None):
 
 
 
-    #### Variables ####
-
-
-
+    ####  Global Variables: not restricted to specific scope ####
     global fontFace, correct, ques, count, title, fontFace, browserName, correct, ques, count, entry, further, root, browserName
+
+
     #### Functions Section ######
 
 
-    #def askGoogle(string, browserName):
     def askGoogle(string):
-        """In case of wrong answer, show correct person from google search.
+        """In case of wrong answer, show correct 'person' from google search.
 
-        Turns correct answer in to a google ask, and then opens a browser tab to the google search results in a new tab. Process is dependent on OS.name.
+        Turns correct answer into a google ask, and then opens a browser tab to the google search results.
 
-        Currently browser is set to firefox and confirmed to work, as long as firefox is installed.
+        Relies on default browser of the system to improve compatibility.
 
         Args
         ----
 
         string (str):
             The question to look up (from the list)
-        browserName (str):
-            browser defined in the variables (line 142)
 
         Returns
         -------
 
             bool: True for success. False otherwise.
 
-        .. TODO::
-            var platform is duplicated. Find a solution without repetition.
         """
         ask = string
         ask = ask.replace(" ", "+")
@@ -174,12 +168,7 @@ def main(args=None):
         platform = os.name
         if platform == "posix":
             try:
-                #web = webbrowser.get(browserName)
-                ask = string
-                ask = ask.replace(" ", "+")
-                www = "https://www.google.com/#q=" + ask + "&*"
                 webbrowser.open(www, new=0, autoraise=False)
-                #web.open(www, new=0, autoraise=False)
             except:
                 print "We're sorry; we couldn't show the answer with a browser."
         else:
@@ -190,28 +179,54 @@ def main(args=None):
 
 
     def pop(title, string):
+        """
+        We used three pop-up message boxes in the course of development.
+        We don't repeat ourselves, so we just called this function each
+        time we need a messagebox to appear.
+
+        parameters
+        ----------
+
+        title (str): Title of the dialog
+        string (str): message of the messagebox
+
+        """
         msg = tkMessageBox
         msg = msg.showinfo(title, string)
 
 
-    # function for continuing
+    # function for continuing (on correct or incorrect answer)
     def out(*event):
+        """
+        Output to the main window. Changes after each answer is submitted, until there are no questions left to answer.
 
+        parameters
+        ----------
+
+        event (event): Optional. How to work with <Enter> key stroke or Submit button being pressed.
+
+        """
         global correct, ques, count, entry, further, root, browserName
+
+        # bring cursor to the input field
         entry.focus()
+        # change progress bar
         further["value"] = ques
+        # process input
         ans = entry.get()
+        # conditional: if still questions left to answer, do the things that follow.
         if ques < count:
             entry.focus()
             further["value"] = ques
             further.pack()
+            # conditional: if answer is correct, increase score, change question.
             if ans == answer[ques]:
                 correct = correct + 1
                 ques = ques + 1
                 entry.delete(0, END)
                 label.config(text = question[ques])
                 score.config(text=("Score: " + str(correct) + "/" + str(ques)))
-
+            # if not correct answer, do what follows.
             else:
                 askGoogle(answer[ques])
                 #askGoogle(answer[ques], browserName)
@@ -220,13 +235,24 @@ def main(args=None):
                 ques = ques + 1
                 entry.delete(0, END)
                 entry.focus()
+
+        # if there are questions left, go to next question
         if ques < count:
             label.config(text = question[ques])
             score.config(text=("Score: " + str(correct) + "/" + str(ques)))
+        # if no more questions, close program.
         else:
+            # call the close function with no parameters
             close()
 
     def widgets():
+        """
+        Function for adding all the widgets to the graphical user interface. Also sets up two frames for the lower 2/3 of frames.
+
+        Parameters:
+        None
+
+        """
         global fontFace, further, entry, label, score
 
         #frame inside window to control bottom element layout
@@ -236,8 +262,10 @@ def main(args=None):
         midFrame = Frame(root)
         midFrame.pack(side=BOTTOM)
 
-        # root widgets
+        #### root widgets ####
+
         dummy(root)
+
 
         people = ttk.Label(root,wraplength=500, foreground="red", text="Dr. Angela Davis, Dr. Martin Luther King, Jr., Assata Shakur, bell hooks, Stokely Carmichael, Bobby Seale, Percy Sutton, Coretta Scott King, Huey P. Newton, Rep. John Lewis\n\n")
         people.pack()
@@ -298,29 +326,40 @@ def main(args=None):
         root.destroy()
 
     def dummy(parent):
+        """ This function makes an empty label. It's used several times to add vertical space between widgets in the root window.
+
+        Parameters:
+
+        parent (variable): the variable can be set to root, midFrame, or bottomframe
+        """
+
         spacer = ttk.Label(parent, text = " ")
         spacer.pack()
 
 
+    #### These are the first actions to happen ####
 
-    # creates root window
     # Set Variables (variables represent values that change)
     correct = 0
     ques = 0
     count = len(answer)
     title = "Protest & Resist (Power to the People!)"
-    fontFace = 'arial 15 bold'
-    #browserName = 'firefox'
+    fontFace = 'arial 14 bold'
+    # creates the root window of the interface
     root = tk.Tk()
     # sets geometry for root window
     root.geometry('{}x{}'.format(600, 700))
     #name at top of dialog
     windowtitle = root.wm_title(title)
+    # call the widgets function to populate the window
     widgets()
-    # Create splash dialog (message box)
+    # Create splash dialog (message box); calls the pop function
     splash = pop("Welcome", "Protest & Resist (Power to the People!)\n\nEnter your answers in the form of a question (like Jeopardy) -- Capitalization, spelling, and punctuation count. At the top of the game, you'll see possible answers. Press 'OK' to submit an answer; press 'Quit' to end the game.\n")
+    # Keep the game at the forefront of the desktop
     root.attributes('-topmost', True)
+    # loops everything until told to quit (run out of questions or press <Escape> or click quit
     root.mainloop()
 
+# Python idiom - everything runs within the main() function
 if __name__ == "__main__":
     main()
