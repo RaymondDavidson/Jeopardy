@@ -349,24 +349,34 @@ def main(args=None):
 
     # Set Variables (variables represent values that change)
     correct = 0
+    ''' Number of questions answered correctly'''
     ques = 0
+    ''' current question number (starts count at 0)'''
     count = len(answer)
+    '''total number of answers (and questions)'''
     title = "Protest & Resist (Power to the People!)"
+    '''Root window title'''
     fontFace = 'arial 14 bold'
-    # creates the root window of the interface
+    '''Sets the font used for the questions/prompts'''
     root = tk.Tk()
-    # sets geometry for root window
+    '''creates the root window of the interface'''
     root.geometry('{}x{}'.format(600, 700))
-    #name at top of dialog
+    '''sets geometry for root window'''
     windowtitle = root.wm_title(title)
-    # call the widgets function to populate the window
+    '''name at top of dialog'''
+
     widgets()
-    # Create splash dialog (message box); calls the pop function
+    # call the widgets function to populate the window
+
     splash = pop("Welcome", "Protest & Resist (Power to the People!)\n\nEnter your answers in the form of a question (like Jeopardy) -- Capitalization, spelling, and punctuation count. At the top of the game, you'll see possible answers. Press 'OK' to submit an answer; press 'Quit' to end the game.\n")
-    # Keep the game at the forefront of the desktop
+    # Create splash dialog (message box); calls the pop function
+
     root.attributes('-topmost', True)
-    # loops everything until told to quit (run out of questions or press <Escape> or click quit
+    # Keep the game at the forefront of the desktop
+
+
     root.mainloop()
+    # loops everything until told to quit (run out of questions or press <Escape> or click quit
 
 # Python idiom - everything runs within the main() function
 if __name__ == "__main__":

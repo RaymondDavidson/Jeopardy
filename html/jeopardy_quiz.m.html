@@ -1512,24 +1512,34 @@ It asks questions that answered jeopardy-style. Each question that is answered i
 
     <span class="c1"># Set Variables (variables represent values that change)</span>
     <span class="n">correct</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="sd">&#39;&#39;&#39; Number of questions answered correctly&#39;&#39;&#39;</span>
     <span class="n">ques</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="sd">&#39;&#39;&#39; current question number (starts count at 0)&#39;&#39;&#39;</span>
     <span class="n">count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
+    <span class="sd">&#39;&#39;&#39;total number of answers (and questions)&#39;&#39;&#39;</span>
     <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Protest &amp; Resist (Power to the People!)&quot;</span>
+    <span class="sd">&#39;&#39;&#39;Root window title&#39;&#39;&#39;</span>
     <span class="n">fontFace</span> <span class="o">=</span> <span class="s1">&#39;arial 14 bold&#39;</span>
-    <span class="c1"># creates the root window of the interface</span>
+    <span class="sd">&#39;&#39;&#39;Sets the font used for the questions/prompts&#39;&#39;&#39;</span>
     <span class="n">root</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Tk</span><span class="p">()</span>
-    <span class="c1"># sets geometry for root window</span>
+    <span class="sd">&#39;&#39;&#39;creates the root window of the interface&#39;&#39;&#39;</span>
     <span class="n">root</span><span class="o">.</span><span class="n">geometry</span><span class="p">(</span><span class="s1">&#39;{}x{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="mi">700</span><span class="p">))</span>
-    <span class="c1">#name at top of dialog</span>
+    <span class="sd">&#39;&#39;&#39;sets geometry for root window&#39;&#39;&#39;</span>
     <span class="n">windowtitle</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">wm_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
-    <span class="c1"># call the widgets function to populate the window</span>
+    <span class="sd">&#39;&#39;&#39;name at top of dialog&#39;&#39;&#39;</span>
+
     <span class="n">widgets</span><span class="p">()</span>
-    <span class="c1"># Create splash dialog (message box); calls the pop function</span>
+    <span class="c1"># call the widgets function to populate the window</span>
+
     <span class="n">splash</span> <span class="o">=</span> <span class="n">pop</span><span class="p">(</span><span class="s2">&quot;Welcome&quot;</span><span class="p">,</span> <span class="s2">&quot;Protest &amp; Resist (Power to the People!)</span><span class="se">\n\n</span><span class="s2">Enter your answers in the form of a question (like Jeopardy) -- Capitalization, spelling, and punctuation count. At the top of the game, you&#39;ll see possible answers. Press &#39;OK&#39; to submit an answer; press &#39;Quit&#39; to end the game.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="c1"># Keep the game at the forefront of the desktop</span>
+    <span class="c1"># Create splash dialog (message box); calls the pop function</span>
+
     <span class="n">root</span><span class="o">.</span><span class="n">attributes</span><span class="p">(</span><span class="s1">&#39;-topmost&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
-    <span class="c1"># loops everything until told to quit (run out of questions or press &lt;Escape&gt; or click quit</span>
+    <span class="c1"># Keep the game at the forefront of the desktop</span>
+
+
     <span class="n">root</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
+    <span class="c1"># loops everything until told to quit (run out of questions or press &lt;Escape&gt; or click quit</span>
 
 <span class="c1"># Python idiom - everything runs within the main() function</span>
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
@@ -2531,23 +2541,32 @@ It asks questions that answered jeopardy-style. Each question that is answered i
 
     <span class="c1"># Set Variables (variables represent values that change)</span>
     <span class="n">correct</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="sd">&#39;&#39;&#39; Number of questions answered correctly&#39;&#39;&#39;</span>
     <span class="n">ques</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="sd">&#39;&#39;&#39; current question number (starts count at 0)&#39;&#39;&#39;</span>
     <span class="n">count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
+    <span class="sd">&#39;&#39;&#39;total number of answers (and questions)&#39;&#39;&#39;</span>
     <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Protest &amp; Resist (Power to the People!)&quot;</span>
+    <span class="sd">&#39;&#39;&#39;Root window title&#39;&#39;&#39;</span>
     <span class="n">fontFace</span> <span class="o">=</span> <span class="s1">&#39;arial 14 bold&#39;</span>
-    <span class="c1"># creates the root window of the interface</span>
+    <span class="sd">&#39;&#39;&#39;Sets the font used for the questions/prompts&#39;&#39;&#39;</span>
     <span class="n">root</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Tk</span><span class="p">()</span>
-    <span class="c1"># sets geometry for root window</span>
+    <span class="sd">&#39;&#39;&#39;creates the root window of the interface&#39;&#39;&#39;</span>
     <span class="n">root</span><span class="o">.</span><span class="n">geometry</span><span class="p">(</span><span class="s1">&#39;{}x{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="mi">700</span><span class="p">))</span>
-    <span class="c1">#name at top of dialog</span>
+    <span class="sd">&#39;&#39;&#39;sets geometry for root window&#39;&#39;&#39;</span>
     <span class="n">windowtitle</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">wm_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
-    <span class="c1"># call the widgets function to populate the window</span>
+    <span class="sd">&#39;&#39;&#39;name at top of dialog&#39;&#39;&#39;</span>
+
     <span class="n">widgets</span><span class="p">()</span>
-    <span class="c1"># Create splash dialog (message box); calls the pop function</span>
+    <span class="c1"># call the widgets function to populate the window</span>
+
     <span class="n">splash</span> <span class="o">=</span> <span class="n">pop</span><span class="p">(</span><span class="s2">&quot;Welcome&quot;</span><span class="p">,</span> <span class="s2">&quot;Protest &amp; Resist (Power to the People!)</span><span class="se">\n\n</span><span class="s2">Enter your answers in the form of a question (like Jeopardy) -- Capitalization, spelling, and punctuation count. At the top of the game, you&#39;ll see possible answers. Press &#39;OK&#39; to submit an answer; press &#39;Quit&#39; to end the game.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="c1"># Keep the game at the forefront of the desktop</span>
+    <span class="c1"># Create splash dialog (message box); calls the pop function</span>
+
     <span class="n">root</span><span class="o">.</span><span class="n">attributes</span><span class="p">(</span><span class="s1">&#39;-topmost&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
-    <span class="c1"># loops everything until told to quit (run out of questions or press &lt;Escape&gt; or click quit</span>
+    <span class="c1"># Keep the game at the forefront of the desktop</span>
+
+
     <span class="n">root</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
 </pre></div>
 
