@@ -72,6 +72,9 @@ def main(args=None):
 
     The 'backslash n' sequence means 'new line'
 
+    The 'backslash quote' sequence tells Python to ignore the quote -
+    it's not part of the program, it's part of the output.
+
     """
     question = [
         "She is a civil-rights activist that argued for the abolition of prisons.\n\n",
