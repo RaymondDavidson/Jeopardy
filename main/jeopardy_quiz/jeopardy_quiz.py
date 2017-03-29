@@ -30,9 +30,9 @@ Jeopardy style quiz about civil rights leaders often not included in curriculum.
 
 Summary:
 
-    This is a program written in Python. It seeks to teach students about historically significant perspectives on civil rights that are not part of the curriculum.
+    This is a program written in Python. It seeks to teach students about historically significant perspectives on civil rights that are not part of the high-school or middle-school curriculum.
 
-    It asks questions that answered jeopardy-style. Each question that is answered incorrectly bring a browser tab
+    It asks questions that are answered jeopardy-style. Each question that is answered incorrectly opens a browser tab with correct information.
 """
 
 
@@ -137,6 +137,8 @@ def main(args=None):
         "Who is bell hooks?",
         "Who is Dr. Angela Davis?"
     ]
+    """list answers: (str)"""
+
 
 
 
@@ -149,7 +151,8 @@ def main(args=None):
 
 
     def askGoogle(string):
-        """In case of wrong answer, show correct 'person' from google search.
+        """
+        In case of wrong answer, show correct 'person' from google search.
 
         Turns correct answer into a google ask, and then opens a browser tab to the google search results.
 
@@ -166,7 +169,6 @@ def main(args=None):
         -------
 
         :return bool: True for success. False otherwise.
-
 
         """
 
@@ -187,6 +189,7 @@ def main(args=None):
 
 
     def pop(title, string):
+
         """
         We used three pop-up message boxes in the course of development.
         We don't repeat ourselves, so we just called this function each
@@ -198,6 +201,11 @@ def main(args=None):
         title (str): Title of the dialog
         string (str): message of the messagebox
 
+        Returns
+        -------
+
+        Bool: True if successful
+
         """
         msg = tkMessageBox
         msg = msg.showinfo(title, string)
@@ -206,6 +214,8 @@ def main(args=None):
     # function for continuing (on correct or incorrect answer)
     def out(*event):
         """
+        Output contents to window
+
         Output to the main window. Changes after each answer is submitted, until there are no questions left to answer.
 
         parameters
@@ -255,6 +265,8 @@ def main(args=None):
 
     def widgets():
         """
+        Adds windgets to window
+
         Function for adding all the widgets to the graphical user interface. Also sets up two frames for the lower 2/3 of frames.
 
         Parameters:
@@ -328,6 +340,13 @@ def main(args=None):
 
 
     def close(*event):
+        """
+        close: procedure for closing app
+
+        Close the app, 1. show popup, 2. change browser contents, 3. destroy root
+
+        """
+
         root.after(40000, lambda: root.destroy())
         pop("Thank you", "Thank you for learning with us!")
         webbrowser.open('https://github.com/ghoulmann/Jeopardy', new=0, autoraise=False)
