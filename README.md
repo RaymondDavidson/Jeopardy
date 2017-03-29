@@ -1,27 +1,26 @@
 # Jeopardy
 
-civil rights jeopardy - repo for HS students.
+civil rights jeopardy - repo for HS student project.
 
 # Requires
 
 * python 2.7
 * Tkinter
-* shelve
 
-# jeopardy-tk.py
+
+# main/jeopardy_quiz/jeopardy_quiz.py
 
 * Game mechanics work
 * quit button works without throwing error
+* launches browser window in event of wrong answer
 
 ## To Do
 
-* [] order the code again - conflicts have made everything out of sequence (but still working)
-* [] Elaborate on setup.py
-* [] make and attach an icon for the window manager
-* [] add debian package instructions to README.md
-* [] strike nuitka
-* [] make it work portably on windows
-* [] docstrings for functions
+* [ ] Make and incorporate wm icon
+* [ ] try again with qt
+* [ ] Build submodules
+* [ ] autogenerate documentation
+* [ ] recreate in javascript, cython
 
 # Python-dialog.py
 
