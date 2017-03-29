@@ -70,6 +70,8 @@ def main(args=None):
     These are the prompts in the game that
     players answer (in the form of a question)
 
+    The 'backslash n' sequence means 'new line'
+
     """
     question = [
         "She is a civil-rights activist that argued for the abolition of prisons.\n\n",
@@ -398,7 +400,7 @@ def main(args=None):
     # loops everything until told to quit (run out of questions or press <Escape> or click quit
 
 # Python idiom - everything runs within the main() function
-# to learn more, 
+# to learn more,
 #visit <http://ibiblio.org/g2swap/byteofpython/read/module-name.html>
 if __name__ == "__main__":
     main()
