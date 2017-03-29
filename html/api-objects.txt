@@ -1,3 +1,0 @@
-jeopardy_quiz.jeopardy_quiz	jeopardy_quiz.jeopardy_quiz-module.html
-jeopardy_quiz.jeopardy_quiz.__package__	jeopardy_quiz.jeopardy_quiz-module.html#__package__
-jeopardy_quiz.jeopardy_quiz.main	jeopardy_quiz.jeopardy_quiz-module.html#main
