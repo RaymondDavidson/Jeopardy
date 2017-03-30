@@ -35,7 +35,7 @@ here = path.abspath(path.dirname(__file__))
 #    long_description = f.read()
 
 setup(name='jeopardy_quiz',
-      version='17.3.28am',
+      version='17.3.30.8am',
       description='A python tkinter script for learning about prograssive civil rights activism',
       #long_description=long_description,
       py_modules=['jeopardy_quiz'],
