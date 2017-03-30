@@ -1,0 +1,3 @@
+[gui_scripts]
+jeopardy_quiz = jeopardy_quiz.jeopardy_quiz:main
+

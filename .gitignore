@@ -2,8 +2,10 @@ build/
 dist/
 ./jeopardy-tk.spec
 ./jeopardy-tk.pyc
-#main/build
+jeopardy_quiz/build
+jeopardy_quiz/dist
+jeopardy_quiz/docs
+jeopardy_quiz/jeopardy_quiz.egg-info
 nuitka/
 tmp/
-documentation/
-main/test/
+jeopardy_quiz/test/
