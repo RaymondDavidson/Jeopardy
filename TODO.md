@@ -10,3 +10,4 @@
 * [ ] Add license content
 * [ ] Separate questions and answers: make text files for modularity and easy modification
 * [ ] tag on git
+* [ ] supress browser messages in console
