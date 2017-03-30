@@ -42,7 +42,7 @@ import Tkinter as tk
 import tkMessageBox
 import sys
 import ttk as ttk
-import shelve
+#import shelve
 import webbrowser
 import time
 import os
