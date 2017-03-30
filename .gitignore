@@ -5,7 +5,7 @@ dist/
 jeopardy_quiz/build
 jeopardy_quiz/dist
 jeopardy_quiz/docs
-jeopardy_quiz/jeopardy_quiz.egg-info
+jeopardy_quiz.egg-info/
 nuitka/
 tmp/
 jeopardy_quiz/test/
