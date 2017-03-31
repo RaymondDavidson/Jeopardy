@@ -60,17 +60,17 @@ def askGoogle(string):
 
     Relies on default browser of the system to improve compatibility.
 
-    Args
-    ~~~~
-
-    :param string (str): The question to look up (from the list)
 
 
+    :param
 
-    Returns
-    -------
+    string (str): The question to look up (from the list)
 
-    :return bool: True for success. False otherwise.
+
+
+    :return
+
+    bool: True for success. False otherwise.
 
     """
 
@@ -96,16 +96,13 @@ def pop(title, string):
     We don't repeat ourselves, so we just called this function each
     time we need a messagebox to appear.
 
-    parameters
-    ----------
 
-    title (str): Title of the dialog
-    string (str): message of the messagebox
+    :param title (str): Title of the dialog
 
-    Returns
-    -------
+    :param string (str): message of the messagebox
 
-    Bool: True if successful
+
+    :returns: Bool: True if successful
 
     """
     msg = tkMessageBox
@@ -120,11 +117,10 @@ def out(*event):
 
     Output to the main window. Changes after each answer is submitted, until there are no questions left to answer.
 
-    parameters
-    ----------
 
-    event (event): Optional. How to work with <Enter> key stroke or Submit button being pressed.
+    :param event (event): Optional. How to work with <Enter> key stroke or Submit button being pressed.
 
+    :returns: bool
     """
     global correct, ques, count, entry, further, root, browserName
 
@@ -174,9 +170,15 @@ def widgets():
 
     Function for adding all the widgets to the graphical user interface. Also sets up two frames for the lower 2/3 of frames.
 
-    Parameters:
+    Parameters
+    ----------
+
     None
 
+    Returns
+    -------
+
+    Bool
     """
     global fontFace, further, entry, label, score, question
 
@@ -273,7 +275,16 @@ def close(*event):
     """
     close: procedure for closing app
 
-    Close the app, 1. show popup, 2. change browser contents, 3. destroy root
+    Close the app,
+
+    1. show popup,
+    2. change browser contents,
+    3. destroy root
+
+    returns
+    ---------
+
+    bool
 
     """
 
