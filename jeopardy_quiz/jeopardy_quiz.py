@@ -82,12 +82,12 @@ def askGoogle(string):
         try:
             webbrowser.open(www, new=0, autoraise=False)
         except BaseException:
-            print "We're sorry; we couldn't show the answer with a browser."
+            print("We're sorry; we couldn't show the answer with a browser.")
     else:
         try:
             webbrowser.open(www, new=0, autoraise=False)
         except BaseException:
-            print "Couldn't raise a browser."
+            print("Couldn't raise a browser.")
 
 
 def pop(title, string):
