@@ -1,9 +1,0 @@
-jeopardy_quiz.jeopardy_quiz	jeopardy_quiz.jeopardy_quiz-module.html
-jeopardy_quiz.jeopardy_quiz.__package__	jeopardy_quiz.jeopardy_quiz-module.html#__package__
-jeopardy_quiz.jeopardy_quiz.main	jeopardy_quiz.jeopardy_quiz-module.html#main
-jeopardy_quiz.jeopardy_quiz.widgets	jeopardy_quiz.jeopardy_quiz-module.html#widgets
-jeopardy_quiz.jeopardy_quiz.close	jeopardy_quiz.jeopardy_quiz-module.html#close
-jeopardy_quiz.jeopardy_quiz.out	jeopardy_quiz.jeopardy_quiz-module.html#out
-jeopardy_quiz.jeopardy_quiz.askGoogle	jeopardy_quiz.jeopardy_quiz-module.html#askGoogle
-jeopardy_quiz.jeopardy_quiz.pop	jeopardy_quiz.jeopardy_quiz-module.html#pop
-jeopardy_quiz.jeopardy_quiz.dummy	jeopardy_quiz.jeopardy_quiz-module.html#dummy

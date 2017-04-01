@@ -34,7 +34,7 @@
       <th class="navbar" align="right" width="100%">
         <table border="0" cellpadding="0" cellspacing="0">
           <tr><th class="navbar" align="center"
-            >jeopary_quiz_tk</th>
+            >jeopardy_quiz</th>
           </tr></table></th>
   </tr>
 </table>
@@ -61,12 +61,8 @@
 </table>
 <!-- ==================== MODULE DESCRIPTION ==================== -->
 <h1 class="epydoc">Module jeopardy_quiz</h1><p class="nomargin-top"><span class="codelink"><a href="jeopardy_quiz.jeopardy_quiz-pysrc.html">source&nbsp;code</a></span></p>
-<p>Jeopardy style quiz about civil rights leaders often not included in curriculum.</p>
-<p>Summary:</p>
-<blockquote>
 <p>This is a program written in Python. It seeks to teach students about historically significant perspectives on civil rights that are not part of the high-school or middle-school curriculum.</p>
 <p>It asks questions that are answered jeopardy-style. Each question that is answered incorrectly opens a browser tab with correct information.</p>
-</blockquote>
 
 <!-- ==================== FUNCTIONS ==================== -->
 <a name="section-Functions"></a>
@@ -87,7 +83,7 @@
 </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">bool</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
@@ -104,7 +100,7 @@
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">bool</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
@@ -124,12 +120,12 @@ time we need a messagebox to appear.</td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">bool</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a href="jeopardy_quiz.jeopardy_quiz-module.html#out" class="summary-sig-name">out</a>(<span class="summary-sig-arg">*event</span>)</span><br />
-      Output contents to window</td>
+      Output contents to window &quot;root&quot;</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="jeopardy_quiz.jeopardy_quiz-pysrc.html#out">source&nbsp;code</a></span>
             
@@ -141,7 +137,7 @@ time we need a messagebox to appear.</td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">bool: True if successful</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
@@ -158,7 +154,7 @@ time we need a messagebox to appear.</td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">bool</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
@@ -175,7 +171,7 @@ time we need a messagebox to appear.</td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">bool</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
@@ -268,11 +264,13 @@ time we need a messagebox to appear.</td>
   <p>In case of wrong answer, show correct 'person' from google search.</p>
 <p>Turns correct answer into a google ask, and then opens a browser tab to the google search results.</p>
 <p>Relies on default browser of the system to improve compatibility.</p>
-<p>:param</p>
-<p>string (str): The question to look up (from the list)</p>
-<p>:return</p>
-<p>bool: True for success. False otherwise.</p>
   <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>string</code></strong> (str) - The question to look up (from the list)</li>
+    </ul></dd>
+    <dt>Returns: bool</dt>
+        <dd>True for success. False otherwise.</dd>
   </dl>
 </td></tr></table>
 </div>
@@ -297,11 +295,10 @@ time we need a messagebox to appear.
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>title</code></strong>, <strong class="pname"><code>(str)</code></strong> - Title of the dialog</li>
-        <li><strong class="pname"><code>string</code></strong>, <strong class="pname"><code>(str)</code></strong> - message of the messagebox</li>
+        <li><strong class="pname"><code>title</code></strong> (str) - Title of the dialog</li>
+        <li><strong class="pname"><code>string</code></strong> (str) - message of the messagebox</li>
     </ul></dd>
-    <dt>Returns:</dt>
-        <dd>Bool: True if successful</dd>
+    <dt>Returns: bool</dt>
   </dl>
 </td></tr></table>
 </div>
@@ -319,15 +316,14 @@ time we need a messagebox to appear.
     </td>
   </tr></table>
   
-  <p>Output contents to window</p>
+  <p>Output contents to window &quot;root&quot;</p>
 <p>Output to the main window. Changes after each answer is submitted, until there are no questions left to answer.</p>
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>event</code></strong>, <strong class="pname"><code>(event)</code></strong> - Optional. How to work with &lt;Enter&gt; key stroke or Submit button being pressed.</li>
+        <li><strong class="pname"><code>event</code></strong> (event - on button click or &lt;Enter&gt; key) - Optional. How to work with &lt;Enter&gt; key stroke or Submit button being pressed.</li>
     </ul></dd>
-    <dt>Returns:</dt>
-        <dd>bool</dd>
+    <dt>Returns: bool</dt>
   </dl>
 </td></tr></table>
 </div>
@@ -347,15 +343,8 @@ time we need a messagebox to appear.
   
   <p>Adds windgets to window</p>
 <p>Function for adding all the widgets to the graphical user interface. Also sets up two frames for the lower 2/3 of frames.</p>
-<div class="rst-section" id="rst-parameters">
-<h1 class="heading">Parameters</h1>
-<p>None</p>
-</div>
-<div class="rst-section" id="rst-returns">
-<h1 class="heading">Returns</h1>
-<p>Bool</p>
-</div>
   <dl class="fields">
+    <dt>Returns: bool: True if successful</dt>
   </dl>
 </td></tr></table>
 </div>
@@ -380,11 +369,12 @@ time we need a messagebox to appear.
 <li>change browser contents,</li>
 <li>destroy root</li>
 </ol>
-<div class="rst-section" id="rst-returns">
-<h1 class="heading">returns</h1>
-<p>bool</p>
-</div>
   <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>event</code></strong> (event) - Optional</li>
+    </ul></dd>
+    <dt>Returns: bool</dt>
   </dl>
 </td></tr></table>
 </div>
@@ -402,10 +392,13 @@ time we need a messagebox to appear.
     </td>
   </tr></table>
   
-  <p>This function makes an empty label. It's used several times to add vertical space between widgets in the root window.</p>
-<p>Parameters:</p>
-<p>parent (variable): the variable can be set to root, midFrame, or bottomframe</p>
+  This function makes an empty label. It's used several times to add vertical space between widgets in the root window.
   <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>parent</code></strong> (str) - the variable can be set to root, midFrame, or bottomframe</li>
+    </ul></dd>
+    <dt>Returns: bool</dt>
   </dl>
 </td></tr></table>
 </div>
@@ -455,14 +448,15 @@ time we need a messagebox to appear.
       <th class="navbar" align="right" width="100%">
         <table border="0" cellpadding="0" cellspacing="0">
           <tr><th class="navbar" align="center"
-            >jeopary_quiz_tk</th>
+            >jeopardy_quiz</th>
           </tr></table></th>
   </tr>
 </table>
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Fri Mar 31 12:59:05 2017
+    Generated by Epydoc 3.0.1
+    on Sat Apr  1 19:53:40 2017
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"
