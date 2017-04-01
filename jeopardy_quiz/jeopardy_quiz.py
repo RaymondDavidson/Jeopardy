@@ -268,6 +268,7 @@ def widgets():
     dummy(bottomframe)
 
     # ==== Key Binding ====
+
     # Consider binding these these to buttons
     # Pressing <Return> runs the out() function
     root.bind('<Return>', out)
@@ -345,6 +346,7 @@ def main(args=None):
     # === Lists ===
 
     # ==== List of Questions =====
+
     question = [
         "She is a civil-rights activist that argued for the abolition of prisons.\n\n",
         "He is the civil-rights leader who described potentially radical action in support of civil rights progress as \"marvelous new militancy\".\n\n",
@@ -377,6 +379,7 @@ def main(args=None):
         "She said \"radical\" simply means \"grasping by the roots.\"\n\n"]
 
     # ==== Answers List ====
+
     # Answers match the above questions (in same order) come afterwards.
     answer = [
         "Who is Dr. Angela Davis?",
