@@ -2,9 +2,15 @@
 # -*- coding: utf-8 -*-
 #
 #  jeopardy_quiz.py
-#
+
+# == Preface ==
+
+# === Copyright ===
+
 #  Copyright 2017 Chelsea School Students and Rik Goldman <rgoldman@chelseaschool.edu>
-#
+
+# === License ===
+
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
 #  the Free Software Foundation; either version 2 of the License, or
@@ -26,30 +32,35 @@
 # ignored by the interpreter
 
 
+
+# ==Introduction ==
+
+#Jeopardy style quiz about civil rights leaders often not included in curriculum.
+
+# === Summary ===
+
 """
-Jeopardy style quiz about civil rights leaders often not included in curriculum.
+This is a program written in Python. It seeks to teach students about historically significant perspectives on civil rights that are not part of the high-school or middle-school curriculum.
 
-Summary:
-
-    This is a program written in Python. It seeks to teach students about historically significant perspectives on civil rights that are not part of the high-school or middle-school curriculum.
-
-    It asks questions that are answered jeopardy-style. Each question that is answered incorrectly opens a browser tab with correct information.
+It asks questions that are answered jeopardy-style. Each question that is answered incorrectly opens a browser tab with correct information.
 """
 
+# == Code ==
 
-#### Dependencies ####
+# === Dependencies ===
+
+# Import Libraries
 from Tkinter import *
 import Tkinter as tk
 import tkMessageBox
 import sys
 import ttk as ttk
-#import shelve
 import webbrowser
 import time
 import os
 import subprocess
 
-#### Functions Section ######
+# === Functions ===
 
 
 def askGoogle(string):
@@ -73,6 +84,8 @@ def askGoogle(string):
     ask = string
     ask = ask.replace(" ", "+")
     www = "https://www.google.com/#q=" + ask + "&*"
+
+    # Lines 90 - 100 unnecessary and should be removed
     platform = os.name
     if platform == "posix":
         try:
@@ -105,11 +118,9 @@ def pop(title, string):
     msg = msg.showinfo(title, string)
 
 # function for continuing (on correct or incorrect answer)
-
-
 def out(*event):
     """
-    Output contents to window
+    Output contents to window "root"
 
     Output to the main window. Changes after each answer is submitted, until there are no questions left to answer.
 
@@ -143,7 +154,6 @@ def out(*event):
         # if not correct answer, do what follows.
         else:
             askGoogle(answer[ques])
-            #askGoogle(answer[ques], browserName)
             root.after(0o500, lambda: root.focus_force())
             entry.focus()
             ques = ques + 1
@@ -151,6 +161,7 @@ def out(*event):
             entry.focus()
 
     # if there are questions left, go to next question
+    # TODO: Check throughly that this is not redundant
     if ques < count:
         label.config(text=question[ques])
         score.config(text=("Score: " + str(correct) + "/" + str(ques)))
@@ -159,7 +170,7 @@ def out(*event):
         # call the close function with no parameters
         close()
 
-
+# This function contains all the widget directives for root, bottomframe and midFrame
 def widgets():
     """
     Adds windgets to window
@@ -169,6 +180,8 @@ def widgets():
 
     :rtype: bool: True if successful
     """
+
+    # a declaration of globals that will be required by the function
     global fontFace, further, entry, label, score, question
 
     # frame inside window to control bottom element layout
@@ -178,7 +191,7 @@ def widgets():
     midFrame = Frame(root)
     midFrame.pack(side=BOTTOM)
 
-    #### root widgets ####
+    # ==== root widgets ====
 
     dummy(root)
 
@@ -196,8 +209,8 @@ def widgets():
         font=fontFace)
     label.pack()
 
-    # midFrame widgets
-    whois = StringVar(root, value='Who is...?')
+    # ==== midFrame widgets ====
+    whois = StringVar(midFrame, value='Who is...?')
     entry = ttk.Entry(midFrame, width=40, textvariable=whois)
     entry.focus()
     entry.pack()
@@ -214,7 +227,9 @@ def widgets():
     dummy(midFrame)
     dummy(midFrame)
     dummy(midFrame)
-    # bottomframe widgets
+
+    # ==== bottomframe widgets ====
+
     # horizontal spacers (calling dummy() function defined above)
     dummy(bottomframe)
     # horizontal spacer: calls dummy() function above
@@ -224,8 +239,7 @@ def widgets():
     score = ttk.Label(bottomframe, text="Score: 0/0", font=fontFace)
     score.pack()
     dummy(bottomframe)
-    # make and pack progressbar: (green on windows, grey on linux, striped
-    # on mac)
+    # make and pack progressbar: (green on windows, grey on linux, striped on mac)
     further = ttk.Progressbar(
         bottomframe,
         mode="determinate",
@@ -253,13 +267,14 @@ def widgets():
     # spacer
     dummy(bottomframe)
 
-    # Key Binding
-    # Keyboard Input
+    # ==== Key Binding ====
+    # Consider binding these these to buttons
+    # Pressing <Return> runs the out() function
     root.bind('<Return>', out)
-    # Use <Escape> to quit using close method
+    # Use <Escape> to quit using close() method
     root.bind('<Escape>', close)
 
-
+# For exiting the application
 def close(*event):
     """
     close: procedure for closing app
@@ -270,35 +285,45 @@ def close(*event):
     2. change browser contents,
     3. destroy root
 
+
     :rtype: bool
+
     :param event: Optional
+
     :type event: event
 
     """
 
     root.after(40000, lambda: root.destroy())
+    # Thank you for playing messagebox
     pop("Thank you", "Thank you for learning with us!")
+    # open page in default browser
     webbrowser.open(
         'https://github.com/ghoulmann/Jeopardy',
         new=0,
         autoraise=False)
+    # Destroy the Window for the application
     root.destroy()
 
-
+# function to create vertical space
 def dummy(parent):
-    """ This function makes an empty label. It's used several times to add vertical space between widgets in the root window.
+    """
+    This function makes an empty label. It's used several times to add vertical space between widgets in the root window.
 
     :param parent: the variable can be set to root, midFrame, or bottomframe
-    :type parent: str
-    :rtype: bool
-    """
 
+    :type parent: str
+
+    :rtype: bool
+
+    """
+    # make space out of a single <space> character in the target part of the interface.
     spacer = ttk.Label(parent, text=" ")
-    """ label parent window; label content defined as 2x whitespace character"""
+    # label parent window; label content defined as 2x whitespace character
     spacer.pack()
 
 
-#### Main Function ####
+# === Main Function ===
 
 
 def main(args=None):
@@ -310,16 +335,16 @@ def main(args=None):
     parameters: none
     """
 
-    #### Python Conventions: Run the program - do not take any modifiers ####
+    # Python Conventions: Run the program - do not take any modifiers
     if args is None:
         args = sys.argv[1:]
 
-    ####  Global Variables: not restricted to specific scope ####
+    # Global Variables: not restricted to specific scope
     global fontFace, correct, ques, count, title, fontFace, browserName, correct, ques, count, entry, further, root, browserName, question, answer
 
-    #### Lists ####
+    # === Lists ===
 
-
+    # ==== List of Questions =====
     question = [
         "She is a civil-rights activist that argued for the abolition of prisons.\n\n",
         "He is the civil-rights leader who described potentially radical action in support of civil rights progress as \"marvelous new militancy\".\n\n",
@@ -350,18 +375,8 @@ def main(args=None):
         "He said \"Don't give up, Don't give out, Don't give in.\"\n\n",
         "She said \"Feminism is for everybody.\"\n\n",
         "She said \"radical\" simply means \"grasping by the roots.\"\n\n"]
-    """
-    These are the prompts in the game that
-    players answer (in the form of a question)
 
-    The 'backslash n' sequence means 'new line'
-
-    The 'backslash quote' sequence tells Python to ignore the quote -
-    it's not part of the program, it's part of the output.
-
-    """
-    
-    # This is a Python list.
+    # ==== Answers List ====
     # Answers match the above questions (in same order) come afterwards.
     answer = [
         "Who is Dr. Angela Davis?",
@@ -394,40 +409,38 @@ def main(args=None):
         "Who is bell hooks?",
         "Who is Dr. Angela Davis?"
     ]
-    """list answers: (str)"""
 
-    #### These are the first actions to happen ####
 
-    # Set Variables (variables represent values that change)
+    # **These are the first actions to happen**
+
+    # === Variables Get Set ===
+
+    # Number of questions answered correctly
     correct = 0
-    ''' Number of questions answered correctly'''
+    # current question number (starts count at 0)
     ques = 0
-    ''' current question number (starts count at 0)'''
+    # total number of answers (and questions)
     count = len(answer)
-    '''total number of answers (and questions)'''
+    # Root window title
     title = "Protest & Resist (Power to the People!)"
-    '''Root window title'''
+    # Sets the font used for the questions/prompts
     fontFace = 'arial 14 bold'
-    '''Sets the font used for the questions/prompts'''
+    # creates the root window of the interface
     root = tk.Tk()
-    '''creates the root window of the interface'''
+    # sets geometry for root window
     root.geometry('{}x{}'.format(600, 700))
-    '''sets geometry for root window'''
+    # name at top of dialog
     windowtitle = root.wm_title(title)
-    '''name at top of dialog'''
-
-    widgets()
     # call the widgets function to populate the window
-
-    splash = pop("Welcome", "Protest & Resist (Power to the People!)\n\nEnter your answers in the form of a question (like Jeopardy) -- Capitalization, spelling, and punctuation count. At the top of the game, you'll see possible answers. Press 'OK' to submit an answer; press 'Quit' to end the game.\n")
+    widgets()
     # Create splash dialog (message box); calls the pop function
-
-    root.attributes('-topmost', True)
+    splash = pop("Welcome", "Protest & Resist (Power to the People!)\n\nEnter your answers in the form of a question (like Jeopardy) -- Capitalization, spelling, and punctuation count. At the top of the game, you'll see possible answers. Press 'OK' to submit an answer; press 'Quit' to end the game.\n")
     # Keep the game at the forefront of the desktop
-
-    root.mainloop()
+    root.attributes('-topmost', True)
     # loops everything until told to quit (run out of questions or press
     # <Escape> or click quit
+    root.mainloop()
+
 
 
 # Python idiom - everything runs within the main() function
