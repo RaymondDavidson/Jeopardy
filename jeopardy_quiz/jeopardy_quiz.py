@@ -62,15 +62,11 @@ def askGoogle(string):
 
 
 
-    :param
+    :param string: The question to look up (from the list)
+    :type string: str
 
-    string (str): The question to look up (from the list)
-
-
-
-    :return
-
-    bool: True for success. False otherwise.
+    :returns: True for success. False otherwise.
+    :rtype: bool
 
     """
 
@@ -97,13 +93,13 @@ def pop(title, string):
     time we need a messagebox to appear.
 
 
-    :param title (str): Title of the dialog
+    :param title: Title of the dialog
+    :type title: str
 
-    :param string (str): message of the messagebox
+    :param string: message of the messagebox
+    :type string: str
 
-
-    :returns: Bool: True if successful
-
+    :rtype: bool
     """
     msg = tkMessageBox
     msg = msg.showinfo(title, string)
@@ -118,9 +114,9 @@ def out(*event):
     Output to the main window. Changes after each answer is submitted, until there are no questions left to answer.
 
 
-    :param event (event): Optional. How to work with <Enter> key stroke or Submit button being pressed.
-
-    :returns: bool
+    :param event: Optional. How to work with <Enter> key stroke or Submit button being pressed.
+    :type event: event - on button click or <Enter> key
+    :rtype: bool
     """
     global correct, ques, count, entry, further, root, browserName
 
@@ -170,15 +166,8 @@ def widgets():
 
     Function for adding all the widgets to the graphical user interface. Also sets up two frames for the lower 2/3 of frames.
 
-    Parameters
-    ----------
 
-    None
-
-    Returns
-    -------
-
-    Bool
+    :rtype: bool: True if successful
     """
     global fontFace, further, entry, label, score, question
 
@@ -281,10 +270,9 @@ def close(*event):
     2. change browser contents,
     3. destroy root
 
-    returns
-    ---------
-
-    bool
+    :rtype: bool
+    :param event: Optional
+    :type event: event
 
     """
 
@@ -300,12 +288,13 @@ def close(*event):
 def dummy(parent):
     """ This function makes an empty label. It's used several times to add vertical space between widgets in the root window.
 
-    Parameters:
-
-    parent (variable): the variable can be set to root, midFrame, or bottomframe
+    :param parent: the variable can be set to root, midFrame, or bottomframe
+    :type parent: str
+    :rtype: bool
     """
 
     spacer = ttk.Label(parent, text=" ")
+    """ label parent window; label content defined as 2x whitespace character"""
     spacer.pack()
 
 
@@ -330,16 +319,7 @@ def main(args=None):
 
     #### Lists ####
 
-    """
-    These are the prompts in the game that
-    players answer (in the form of a question)
 
-    The 'backslash n' sequence means 'new line'
-
-    The 'backslash quote' sequence tells Python to ignore the quote -
-    it's not part of the program, it's part of the output.
-
-    """
     question = [
         "She is a civil-rights activist that argued for the abolition of prisons.\n\n",
         "He is the civil-rights leader who described potentially radical action in support of civil rights progress as \"marvelous new militancy\".\n\n",
@@ -370,7 +350,17 @@ def main(args=None):
         "He said \"Don't give up, Don't give out, Don't give in.\"\n\n",
         "She said \"Feminism is for everybody.\"\n\n",
         "She said \"radical\" simply means \"grasping by the roots.\"\n\n"]
+    """
+    These are the prompts in the game that
+    players answer (in the form of a question)
 
+    The 'backslash n' sequence means 'new line'
+
+    The 'backslash quote' sequence tells Python to ignore the quote -
+    it's not part of the program, it's part of the output.
+
+    """
+    
     # This is a Python list.
     # Answers match the above questions (in same order) come afterwards.
     answer = [
