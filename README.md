@@ -1,14 +1,14 @@
 # Jeopardy
 
-civil rights jeopardy - repo for HS student project.
+civil rights jeopardy - repo for HS students' project.
 
 # Requires
 
 * python 2.7
-* Tkinter
+* python-tkinter
 
 
-# main/jeopardy_quiz/jeopardy_quiz.py
+# jeopardy_quiz/jeopardy_quiz.py
 
 * Game mechanics work
 * quit button works without throwing error
