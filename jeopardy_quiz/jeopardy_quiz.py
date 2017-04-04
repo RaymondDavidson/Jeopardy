@@ -300,7 +300,7 @@ def close(*event):
     pop("Thank you", "Thank you for learning with us!")
     # open page in default browser
     webbrowser.open(
-        'https://github.com/ghoulmann/Jeopardy',
+        'http://23eyes.org/fair',
         new=0,
         autoraise=False)
     # Destroy the Window for the application
